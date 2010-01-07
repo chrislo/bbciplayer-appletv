@@ -1,0 +1,8 @@
+//
+// Prefix header for all source files of the 'BBCiPlayer' target in the 'BBCiPlayer' project 
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+	#import "Helper.h"
+#endif
