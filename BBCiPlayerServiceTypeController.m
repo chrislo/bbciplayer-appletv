@@ -44,27 +44,12 @@
 }
 
 - (id)itemForRow:(long)row {
-    if (row > [self itemCount]) {
-		return nil;
-	}
-	
-	BRTextMenuItemLayer *item;
-	if (row > 2) {
-		item = [BRTextMenuItemLayer folderMenuItem];
-	}
-	else {
-		item = [BRTextMenuItemLayer menuItem];
-	}
+	BRTextMenuItemLayer *item = [BRTextMenuItemLayer folderMenuItem];
 	[item setTitle:[_names objectAtIndex:row]];
-	
 	return item;
 }
 
 - (NSString *)titleForRow:(long)row {
-    if (row > [self itemCount]) {
-		return nil;
-	}
-
     return [_names objectAtIndex:row];
 }
 
@@ -83,13 +68,8 @@
 }
 
 - (void)itemSelected:(long)row {
-    if (row > [self itemCount]) {
-		return;
-	}
-	else {
-		BRAlertController *controller = [BRAlertController alertOfType:0 titled:@"Click" primaryText:@"You clicked" secondaryText:nil];
-		[[self stack] pushController:controller];
-	}
+    BRAlertController *controller = [BRAlertController alertOfType:0 titled:@"Click" primaryText:@"You clicked" secondaryText:nil];
+    [[self stack] pushController:controller];
 }
 
 - (float)heightForRow:(long)row {
