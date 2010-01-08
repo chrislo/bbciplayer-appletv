@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7759844E10F671D400EC80D1 /* MainMenuPreview.png in Resources */ = {isa = PBXBuildFile; fileRef = 7759844D10F671D400EC80D1 /* MainMenuPreview.png */; };
+		7759848410F6B01B00EC80D1 /* BBCiPlayerServiceTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7759848310F6B01B00EC80D1 /* BBCiPlayerServiceTypeController.m */; };
+		775984C710F6BB4400EC80D1 /* RefData.m in Sources */ = {isa = PBXBuildFile; fileRef = 775984C610F6BB4400EC80D1 /* RefData.m */; };
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		E3D772A610321DDA00D0AEAD /* BackRow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D772A510321DDA00D0AEAD /* BackRow.framework */; };
 		E3F00CAC1030C4F60062016C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3F00CAB1030C4F60062016C /* Cocoa.framework */; };
@@ -20,6 +22,10 @@
 		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		32DBCF630370AF2F00C91783 /* BBCiPlayer_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCiPlayer_Prefix.pch; sourceTree = "<group>"; };
 		7759844D10F671D400EC80D1 /* MainMenuPreview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MainMenuPreview.png; sourceTree = "<group>"; };
+		7759848210F6B01B00EC80D1 /* BBCiPlayerServiceTypeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCiPlayerServiceTypeController.h; sourceTree = "<group>"; };
+		7759848310F6B01B00EC80D1 /* BBCiPlayerServiceTypeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCiPlayerServiceTypeController.m; sourceTree = "<group>"; };
+		775984C510F6BB4400EC80D1 /* RefData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefData.h; sourceTree = "<group>"; };
+		775984C610F6BB4400EC80D1 /* RefData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefData.m; sourceTree = "<group>"; };
 		8D5B49B6048680CD000E48DA /* BBCiPlayer.frappliance */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BBCiPlayer.frappliance; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3D772A510321DDA00D0AEAD /* BackRow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BackRow.framework; path = System/Library/PrivateFrameworks/BackRow.framework; sourceTree = SDKROOT; };
@@ -81,6 +87,10 @@
 			children = (
 				E3F00CBB1030C7990062016C /* BBCiPlayerAppliance.h */,
 				E3F00CBC1030C7990062016C /* BBCiPlayerAppliance.m */,
+				7759848210F6B01B00EC80D1 /* BBCiPlayerServiceTypeController.h */,
+				7759848310F6B01B00EC80D1 /* BBCiPlayerServiceTypeController.m */,
+				775984C510F6BB4400EC80D1 /* RefData.h */,
+				775984C610F6BB4400EC80D1 /* RefData.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -175,6 +185,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3F00CBD1030C7990062016C /* BBCiPlayerAppliance.m in Sources */,
+				7759848410F6B01B00EC80D1 /* BBCiPlayerServiceTypeController.m in Sources */,
+				775984C710F6BB4400EC80D1 /* RefData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,4 +1,8 @@
 #import "BBCiPlayerAppliance.h"
+#import "BBCiPlayerServiceTypeController.h"
+
+#define TV_IDENTIFIER @"tv"
+#define RADIO_IDENTIFIER @"radio"
 
 @implementation BBCiPlayerAppliance
 
@@ -22,7 +26,7 @@
 	
 	NSEnumerator *enumerator = [[[self applianceInfo] applianceCategoryDescriptors] objectEnumerator];
 	id obj;
-	while((obj = [enumerator nextObject]) != nil) {
+	while ((obj = [enumerator nextObject]) != nil) {
 		BRApplianceCategory *category = [BRApplianceCategory categoryWithName:[obj valueForKey:@"name"] identifier:[obj valueForKey:@"identifier"] preferredOrder:[[obj valueForKey:@"preferred-order"] floatValue]];
 		[categories addObject:category];
 	}
@@ -40,8 +44,19 @@
 	return [preview autorelease];
 }
 
--(id)controllerForIdentifier:(id)indent args:(id)args {
-
+-(id)controllerForIdentifier:(id)ident args:(id)args {
+	
+	NSString *identifier = (NSString *)ident;
+	BRController *controller;
+	
+	if ([identifier isEqualToString:TV_IDENTIFIER]) {
+		controller = [[BBCiPlayerServiceTypeController alloc] initWithType:BBCiPlayerServiceTypeTV];
+	}
+	else if ([identifier isEqualToString:RADIO_IDENTIFIER]) {
+		controller = [[BBCiPlayerServiceTypeController alloc] initWithType:BBCiPlayerServiceTypeRadio];
+	}
+	
+	return [controller autorelease];
 }
 
 @end

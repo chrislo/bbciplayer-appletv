@@ -1,0 +1,105 @@
+#import "BBCiPlayerServiceTypeController.h"
+#import "RefData.h"
+
+@implementation BBCiPlayerServiceTypeController
+
+- (id)initWithType:(BBCiPlayerServiceType)type {
+    if ((self = [super init])) {
+		_type = type;
+    }
+	
+	_names = [[NSMutableArray alloc] initWithObjects:@"Highlights", @"Most Popular", nil];
+	[_names retain];
+	
+	NSArray *services;
+	
+	if (_type == BBCiPlayerServiceTypeTV) {
+		services = [RefData tvServices];
+	}
+	else if (_type == BBCiPlayerServiceTypeRadio) {
+		services = [NSMutableArray array];
+		[(NSMutableArray *)services addObjectsFromArray:[RefData networkRadioServices]];
+		[(NSMutableArray *)services addObjectsFromArray:[RefData nationalRadioServices]];
+		[(NSMutableArray *)services addObjectsFromArray:[RefData localRadioServices]];
+	}
+	
+	int i;
+	for (i = 0; i < [services count]; i++) {
+		[_names addObject:[[services objectAtIndex:i] objectForKey:@"name"]];
+	}
+	
+	if (_type == BBCiPlayerServiceTypeTV) {
+		[self setListTitle:@"TV"];
+	}
+	else if (type == BBCiPlayerServiceTypeRadio) {
+		[self setListTitle:@"Radio"];
+	}
+	
+	[[self list] setDatasource:self];
+	
+    return self;
+}
+
+- (void)dealloc {
+	[_names release];
+	[super dealloc];
+}
+
+- (long)itemCount {
+    return [_names count];
+}
+
+- (id)itemForRow:(long)row {
+    if (row > [self itemCount]) {
+		return nil;
+	}
+	
+	BRTextMenuItemLayer *item;
+	if (row > 2) {
+		item = [BRTextMenuItemLayer folderMenuItem];
+	}
+	else {
+		item = [BRTextMenuItemLayer menuItem];
+	}
+	[item setTitle:[_names objectAtIndex:row]];
+	
+	return item;
+}
+
+- (NSString *)titleForRow:(long)row {
+    if (row > [self itemCount]) {
+		return nil;
+	}
+
+    return [_names objectAtIndex:row];
+}
+
+- (long)rowForTitle:(NSString *)title {
+    long result = -1;
+
+    long i, count = [self itemCount];
+    for (i = 0; i < count; i++) {
+		if ([[self titleForRow:i] isEqualToString:title]) {
+            result = i;
+            break;
+        }
+    }
+
+    return result;
+}
+
+- (void)itemSelected:(long)row {
+    if (row > [self itemCount]) {
+		return;
+	}
+	else {
+		BRAlertController *controller = [BRAlertController alertOfType:0 titled:@"Click" primaryText:@"You clicked" secondaryText:nil];
+		[[self stack] pushController:controller];
+	}
+}
+
+- (float)heightForRow:(long)row {
+	return 0.0f;
+}
+
+@end
