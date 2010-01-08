@@ -14,25 +14,19 @@
 	NSArray *services;
 	
 	if (_type == BBCiPlayerServiceTypeTV) {
+        [self setListTitle:@"TV"];
 		services = [RefData tvServices];
 	}
 	else if (_type == BBCiPlayerServiceTypeRadio) {
+        [self setListTitle:@"Radio"];
 		services = [NSMutableArray array];
 		[(NSMutableArray *)services addObjectsFromArray:[RefData networkRadioServices]];
 		[(NSMutableArray *)services addObjectsFromArray:[RefData nationalRadioServices]];
 		[(NSMutableArray *)services addObjectsFromArray:[RefData localRadioServices]];
 	}
 	
-	int i;
-	for (i = 0; i < [services count]; i++) {
+	for (int i = 0; i < [services count]; i++) {
 		[_names addObject:[[services objectAtIndex:i] objectForKey:@"name"]];
-	}
-	
-	if (_type == BBCiPlayerServiceTypeTV) {
-		[self setListTitle:@"TV"];
-	}
-	else if (type == BBCiPlayerServiceTypeRadio) {
-		[self setListTitle:@"Radio"];
 	}
 	
 	[[self list] setDatasource:self];
