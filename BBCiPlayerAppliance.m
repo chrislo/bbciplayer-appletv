@@ -11,7 +11,6 @@
     NSRange range = [[BRBacktracingException backtrace] rangeOfString: @"_loadApplianceAtPath:"];
     if (range.location != NSNotFound)
     {
-        BRLog(@"[%@ className] called for whitelist check; returning MOVAppliance instead", className);
         className = @"MOVAppliance"; 
     }
     return className;

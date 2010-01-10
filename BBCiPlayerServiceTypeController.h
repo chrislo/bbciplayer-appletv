@@ -10,7 +10,7 @@ typedef unsigned int BBCiPlayerServiceType;
 @interface BBCiPlayerServiceTypeController : BRMediaMenuController {
 @private
 	BBCiPlayerServiceType _type;
-	NSMutableArray *_names;
+	NSMutableArray *_items;
 }
 
 - (id)initWithType:(BBCiPlayerServiceType)type;

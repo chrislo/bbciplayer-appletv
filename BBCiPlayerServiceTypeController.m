@@ -1,4 +1,5 @@
 #import "BBCiPlayerServiceTypeController.h"
+#import "BBCiPlayerMediaAsset.h"
 #import "RefData.h"
 
 @implementation BBCiPlayerServiceTypeController
@@ -8,8 +9,8 @@
 		_type = type;
     }
 	
-	_names = [[NSMutableArray alloc] initWithObjects:@"Highlights", @"Most Popular", nil];
-	[_names retain];
+	_items = [[NSMutableArray alloc] initWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:@"Highlights", @"name", @"highlights", @"identifier", nil], [NSDictionary dictionaryWithObjectsAndKeys:@"Most Popular", @"name", @"mostpopular", @"identifier", nil], nil];
+	[_items retain];
 	
 	NSArray *services;
 	
@@ -26,7 +27,7 @@
 	}
 	
 	for (int i = 0; i < [services count]; i++) {
-		[_names addObject:[[services objectAtIndex:i] objectForKey:@"name"]];
+		[_items addObject:[services objectAtIndex:i]];
 	}
 	
 	[[self list] setDatasource:self];
@@ -35,22 +36,22 @@
 }
 
 - (void)dealloc {
-	[_names release];
+	[_items release];
 	[super dealloc];
 }
 
 - (long)itemCount {
-    return [_names count];
+    return [_items count];
 }
 
 - (id)itemForRow:(long)row {
 	BRTextMenuItemLayer *item = [BRTextMenuItemLayer folderMenuItem];
-	[item setTitle:[_names objectAtIndex:row]];
+	[item setTitle:[[_items objectAtIndex:row] objectForKey:@"name"]];
 	return item;
 }
 
 - (NSString *)titleForRow:(long)row {
-    return [_names objectAtIndex:row];
+    return [[_items objectAtIndex:row] objectForKey:@"name"];
 }
 
 - (long)rowForTitle:(NSString *)title {
@@ -74,6 +75,23 @@
 
 - (float)heightForRow:(long)row {
 	return 0.0f;
+}
+
+- (id)previewControlForItem:(long)row {
+
+	if (row < 2)
+		return nil;
+
+	NSString *identifier = [[_items objectAtIndex:row] objectForKey:@"identifier"];
+	NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:identifier ofType:@"jpg" inDirectory:@"ServicePreviews"];
+	
+	BRMetadataPreviewControl *preview = [[BRMetadataPreviewControl alloc] init];
+	BBCiPlayerMediaAsset *asset = [[BBCiPlayerMediaAsset alloc] init];
+	[asset setImagePath:path];	
+	[preview setAsset:asset];
+	[asset release];
+	
+	return [preview autorelease];
 }
 
 @end
