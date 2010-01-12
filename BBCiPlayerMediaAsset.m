@@ -18,6 +18,11 @@
 	_coverart = [image retain];
 }
 
+- (id)mediaType
+{
+	return [BRMediaType TVShow];
+}
+
 - (BOOL)hasCoverArt {
 	return YES;
 }
@@ -32,6 +37,24 @@
 	}
 
 	return nil;
+}
+
+- (NSString *)title {
+	return _title;
+}
+
+- (void)setTitle:(NSString *)title {
+	[_title release];
+	_title = [title retain];
+}
+
+- (void)setMediaSummary:(NSString *)mediaSummary {
+	[_summary release];
+	_summary = [mediaSummary retain];
+}
+
+- (id)mediaSummary {
+	return _summary;
 }
 
 @end

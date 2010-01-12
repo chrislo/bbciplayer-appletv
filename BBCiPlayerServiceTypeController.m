@@ -1,4 +1,5 @@
 #import "BBCiPlayerServiceTypeController.h"
+#import "BBCiPlayerHighlightsController.h"
 #import "BBCiPlayerMediaAsset.h"
 #import "RefData.h"
 
@@ -69,8 +70,17 @@
 }
 
 - (void)itemSelected:(long)row {
-    BRAlertController *controller = [BRAlertController alertOfType:0 titled:@"Click" primaryText:@"You clicked" secondaryText:nil];
-    [[self stack] pushController:controller];
+	BRController *controller;
+
+	if (row == 0) {
+		controller = [[BBCiPlayerHighlightsController alloc] initWithType:_type];
+		[controller autorelease];
+	}
+	else {
+		controller = [BRAlertController alertOfType:0 titled:@"Click" primaryText:@"You clicked" secondaryText:nil];
+	}
+	
+	[[self stack] pushController:controller]; 
 }
 
 - (float)heightForRow:(long)row {
