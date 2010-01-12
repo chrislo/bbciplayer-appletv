@@ -19,6 +19,7 @@
 		77598C1310FBCE2300EC80D1 /* NSDictionary+BSJSONAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 77598C1010FBCE2200EC80D1 /* NSDictionary+BSJSONAdditions.m */; };
 		77598C1410FBCE2300EC80D1 /* NSScanner+BSJSONAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 77598C1210FBCE2300EC80D1 /* NSScanner+BSJSONAdditions.m */; };
 		77598C3510FBCF3800EC80D1 /* BBCiPlayerMetadataPreviewControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 77598C3410FBCF3800EC80D1 /* BBCiPlayerMetadataPreviewControl.m */; };
+		77598D4E10FC7BEC00EC80D1 /* BBCiPlayerIonRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 77598D4D10FC7BEB00EC80D1 /* BBCiPlayerIonRequest.m */; };
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		E3D772A610321DDA00D0AEAD /* BackRow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D772A510321DDA00D0AEAD /* BackRow.framework */; };
 		E3F00CAC1030C4F60062016C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3F00CAB1030C4F60062016C /* Cocoa.framework */; };
@@ -52,6 +53,8 @@
 		77598C1210FBCE2300EC80D1 /* NSScanner+BSJSONAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSScanner+BSJSONAdditions.m"; sourceTree = "<group>"; };
 		77598C3310FBCF3800EC80D1 /* BBCiPlayerMetadataPreviewControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCiPlayerMetadataPreviewControl.h; sourceTree = "<group>"; };
 		77598C3410FBCF3800EC80D1 /* BBCiPlayerMetadataPreviewControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCiPlayerMetadataPreviewControl.m; sourceTree = "<group>"; };
+		77598D4C10FC7BEB00EC80D1 /* BBCiPlayerIonRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCiPlayerIonRequest.h; sourceTree = "<group>"; };
+		77598D4D10FC7BEB00EC80D1 /* BBCiPlayerIonRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCiPlayerIonRequest.m; sourceTree = "<group>"; };
 		8D5B49B6048680CD000E48DA /* BBCiPlayer.frappliance */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BBCiPlayer.frappliance; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3D772A510321DDA00D0AEAD /* BackRow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BackRow.framework; path = System/Library/PrivateFrameworks/BackRow.framework; sourceTree = SDKROOT; };
@@ -194,6 +197,8 @@
 			children = (
 				E3F00CBB1030C7990062016C /* BBCiPlayerAppliance.h */,
 				E3F00CBC1030C7990062016C /* BBCiPlayerAppliance.m */,
+				77598D4C10FC7BEB00EC80D1 /* BBCiPlayerIonRequest.h */,
+				77598D4D10FC7BEB00EC80D1 /* BBCiPlayerIonRequest.m */,
 				775984C510F6BB4400EC80D1 /* RefData.h */,
 				775984C610F6BB4400EC80D1 /* RefData.m */,
 			);
@@ -279,6 +284,7 @@
 				77598C1310FBCE2300EC80D1 /* NSDictionary+BSJSONAdditions.m in Sources */,
 				77598C1410FBCE2300EC80D1 /* NSScanner+BSJSONAdditions.m in Sources */,
 				77598C3510FBCF3800EC80D1 /* BBCiPlayerMetadataPreviewControl.m in Sources */,
+				77598D4E10FC7BEC00EC80D1 /* BBCiPlayerIonRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
