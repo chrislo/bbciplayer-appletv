@@ -1,16 +1,18 @@
 #import "BBCiPlayerHighlightsController.h"
 #import "BBCiPlayerEpisode.h"
+#import "BBCiPlayerService.h"
 #import "BBCiPlayerIonRequest.h"
 
 @implementation BBCiPlayerHighlightsController
 
-- (id)initWithService:(NSString *)service {
+- (id)initWithService:(BBCiPlayerService *)service {
     if ((self = [super init])) {
-		_service = service;
+		_service = [service retain];
 		
 		[self setListTitle:@"Highlights"];
+		[self setListIcon:[_service thumbnail]];
 		
-		NSURL *ionURL = [NSURL URLWithString:[[@"http://www.bbc.co.uk/iplayer/ion/featured/service/" stringByAppendingString:service] stringByAppendingString:@"/format/json"]];
+		NSURL *ionURL = [NSURL URLWithString:[[@"http://www.bbc.co.uk/iplayer/ion/featured/service/" stringByAppendingString:[_service id]] stringByAppendingString:@"/format/json"]];
 		NSDictionary *ion = [BBCiPlayerIonRequest sendRequestWithURL:ionURL];
 		_items = [[self episodeItemsFromIon:ion] retain];
 		

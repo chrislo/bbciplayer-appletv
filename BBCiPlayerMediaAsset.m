@@ -2,6 +2,13 @@
 
 @implementation BBCiPlayerMediaAsset
 
+- (id)init {
+	if ((self = [super init])) {
+		_imageOnly = NO;
+    }
+    return self;
+}
+
 - (void)dealloc {
 	[_imagePath release];
 	[_coverart release];
@@ -20,7 +27,12 @@
 
 - (id)mediaType
 {
-	return [BRMediaType TVShow];
+	if (_imageOnly) {
+		return nil;
+	}
+	else {
+		return [BRMediaType TVShow];
+	}
 }
 
 - (BOOL)hasCoverArt {
@@ -55,6 +67,10 @@
 
 - (id)mediaSummary {
 	return _summary;
+}
+
+- (void)setImageOnly:(BOOL)imageOnly {
+	_imageOnly = imageOnly;
 }
 
 @end

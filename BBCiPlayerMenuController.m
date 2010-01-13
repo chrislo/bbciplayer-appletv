@@ -43,6 +43,10 @@
 	return 0.0f;
 }
 
+- (id)previewControlForItem:(long)row {
+	return nil;
+}
+
 - (NSMutableArray *)episodeItemsFromIon:(NSDictionary *)ion {
 	NSMutableArray *episodes = [NSMutableArray array];
 	if (ion) {

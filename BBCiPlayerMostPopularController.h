@@ -3,13 +3,15 @@
 #import "BBCiPlayerMenuController.h"
 #import "BBCiPlayerServiceTypeController.h"
 
+@class BBCiPlayerService;
+
 @interface BBCiPlayerMostPopularController : BBCiPlayerMenuController {
 @private
-	NSString *_service;
+	BBCiPlayerService *_service;
 	BBCiPlayerServiceType _type;
 }
 
-- (id)initWithService:(NSString *)service;
+- (id)initWithService:(BBCiPlayerService *)service;
 - (id)initWithType:(BBCiPlayerServiceType)type;
 
 @end

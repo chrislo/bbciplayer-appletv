@@ -1,16 +1,18 @@
 #import "BBCiPlayerMostPopularController.h"
 #import "BBCiPlayerEpisode.h"
+#import "BBCiPlayerService.h"
 #import "BBCiPlayerIonRequest.h"
 
 @implementation BBCiPlayerMostPopularController
 
-- (id)initWithService:(NSString *)service {
+- (id)initWithService:(BBCiPlayerService *)service {
     if ((self = [super init])) {
-		_service = service;
+		_service = [service retain];
 		
 		[self setListTitle:@"Most Popular"];
+		[self setListIcon:[_service thumbnail]];
 		
-		NSURL *ionURL = [NSURL URLWithString:[[@"http://www.bbc.co.uk/iplayer/ion/mostpopular/service/" stringByAppendingString:service] stringByAppendingString:@"/format/json"]];
+		NSURL *ionURL = [NSURL URLWithString:[[@"http://www.bbc.co.uk/iplayer/ion/mostpopular/service/" stringByAppendingString:[_service id]] stringByAppendingString:@"/format/json"]];
 		NSDictionary *ion = [BBCiPlayerIonRequest sendRequestWithURL:ionURL];
 		_items = [[self episodeItemsFromIon:ion] retain];
 		

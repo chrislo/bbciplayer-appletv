@@ -1,6 +1,8 @@
 #import "BBCiPlayerServiceTypeController.h"
 #import "BBCiPlayerHighlightsController.h"
 #import "BBCiPlayerMostPopularController.h"
+#import "BBCiPlayerServiceController.h"
+#import "BBCiPlayerMetadataPreviewControl.h"
 #import "BBCiPlayerEntity.h"
 #import "BBCiPlayerService.h"
 #import "BBCiPlayerMediaAsset.h"
@@ -58,7 +60,7 @@
 	}
 	else {
 		BBCiPlayerService *service = [_items objectAtIndex:row];
-		controller = [BRAlertController alertOfType:0 titled:[service title] primaryText:[service id] secondaryText:nil];
+		controller = [[BBCiPlayerServiceController alloc] initWithService:service];
 	}
 	
 	[[self stack] pushController:controller];
@@ -73,9 +75,10 @@
 	NSString *identifier = [[_items objectAtIndex:row] id];
 	NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:identifier ofType:@"jpg" inDirectory:@"ServicePreviews"];
 	
-	BRMetadataPreviewControl *preview = [[BRMetadataPreviewControl alloc] init];
+	BBCiPlayerMetadataPreviewControl *preview = [[BBCiPlayerMetadataPreviewControl alloc] init];
 	BBCiPlayerMediaAsset *asset = [[BBCiPlayerMediaAsset alloc] init];
-	[asset setImagePath:path];	
+	[asset setImagePath:path];
+	[asset setImageOnly:YES];
 	[preview setAsset:asset];
 	[asset release];
 	

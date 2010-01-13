@@ -7,4 +7,9 @@
 	return [service autorelease];
 }
 
+- (BRImage *)thumbnail {
+	NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:[self id] ofType:@"png" inDirectory:@"ServiceThumbnails"];
+	return [BRImage imageWithPath:path];
+}
+
 @end
