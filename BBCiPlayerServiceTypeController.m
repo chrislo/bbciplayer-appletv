@@ -1,6 +1,8 @@
 #import "BBCiPlayerServiceTypeController.h"
 #import "BBCiPlayerHighlightsController.h"
 #import "BBCiPlayerMostPopularController.h"
+#import "BBCiPlayerEntity.h"
+#import "BBCiPlayerService.h"
 #import "BBCiPlayerMediaAsset.h"
 #import "RefData.h"
 
@@ -11,8 +13,14 @@
 		_type = type;
     }
 	
-	_items = [[NSMutableArray alloc] initWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:@"Highlights", @"name", @"highlights", @"identifier", nil], [NSDictionary dictionaryWithObjectsAndKeys:@"Most Popular", @"name", @"mostpopular", @"identifier", nil], nil];
+	BBCiPlayerEntity *highlights = [[BBCiPlayerEntity alloc] initWithId:@"highlights" title:@"Highlights" andSynopsis:nil];
+	BBCiPlayerEntity *mostPopular = [[BBCiPlayerEntity alloc] initWithId:@"mostpopular" title:@"Most Popular" andSynopsis:nil];
+	
+	_items = [[NSMutableArray alloc] initWithObjects:highlights, mostPopular, nil];
 	[_items retain];
+	
+	[highlights release];
+	[mostPopular release];
 	
 	NSArray *services;
 	
@@ -37,39 +45,6 @@
     return self;
 }
 
-- (void)dealloc {
-	[_items release];
-	[super dealloc];
-}
-
-- (long)itemCount {
-    return [_items count];
-}
-
-- (id)itemForRow:(long)row {
-	BRTextMenuItemLayer *item = [BRTextMenuItemLayer folderMenuItem];
-	[item setTitle:[[_items objectAtIndex:row] objectForKey:@"name"]];
-	return item;
-}
-
-- (NSString *)titleForRow:(long)row {
-    return [[_items objectAtIndex:row] objectForKey:@"name"];
-}
-
-- (long)rowForTitle:(NSString *)title {
-    long result = -1;
-
-    long i, count = [self itemCount];
-    for (i = 0; i < count; i++) {
-		if ([[self titleForRow:i] isEqualToString:title]) {
-            result = i;
-            break;
-        }
-    }
-
-    return result;
-}
-
 - (void)itemSelected:(long)row {
 	BRController *controller;
 
@@ -82,22 +57,20 @@
 		[controller autorelease];
 	}
 	else {
-		controller = [BRAlertController alertOfType:0 titled:@"Click" primaryText:@"You clicked" secondaryText:nil];
+		BBCiPlayerService *service = [_items objectAtIndex:row];
+		controller = [BRAlertController alertOfType:0 titled:[service title] primaryText:[service id] secondaryText:nil];
 	}
 	
-	[[self stack] pushController:controller]; 
-}
-
-- (float)heightForRow:(long)row {
-	return 0.0f;
+	[[self stack] pushController:controller];
 }
 
 - (id)previewControlForItem:(long)row {
 
-	if (row < 2)
+	if (row < 2) {
 		return nil;
-
-	NSString *identifier = [[_items objectAtIndex:row] objectForKey:@"identifier"];
+	}
+	
+	NSString *identifier = [[_items objectAtIndex:row] id];
 	NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:identifier ofType:@"jpg" inDirectory:@"ServicePreviews"];
 	
 	BRMetadataPreviewControl *preview = [[BRMetadataPreviewControl alloc] init];

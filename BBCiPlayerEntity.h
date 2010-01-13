@@ -6,7 +6,7 @@
     NSString *_synopsis;
 }
 
-- (id)initWithId:(NSString *)id;
+- (id)initWithId:(NSString *)id title:(NSString *)title andSynopsis:(NSString *)synopsis;
 - (NSString *)id;
 
 - (NSString *)title;

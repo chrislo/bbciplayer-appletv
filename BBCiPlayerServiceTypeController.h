@@ -1,5 +1,6 @@
 #import <Cocoa/Cocoa.h>
 #import <BackRow/BackRow.h>
+#import "BBCiPlayerMenuController.h"
 
 enum {
     BBCiPlayerServiceTypeTV = 1,
@@ -7,10 +8,9 @@ enum {
 };
 typedef unsigned int BBCiPlayerServiceType;
 
-@interface BBCiPlayerServiceTypeController : BRMediaMenuController {
+@interface BBCiPlayerServiceTypeController : BBCiPlayerMenuController {
 @private
 	BBCiPlayerServiceType _type;
-	NSMutableArray *_items;
 }
 
 - (id)initWithType:(BBCiPlayerServiceType)type;

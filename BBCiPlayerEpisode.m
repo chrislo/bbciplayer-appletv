@@ -3,10 +3,7 @@
 @implementation BBCiPlayerEpisode
 
 - (id)initWithIon:(NSDictionary *)ion {
-    if ((self = [super init])) {
-        _id = [[ion objectForKey:@"id"] retain];
-        _title = [[ion objectForKey:@"complete_title"] retain];
-        _synopsis = [[ion objectForKey:@"synopsis"] retain];
+    if ((self = [super initWithId:[ion objectForKey:@"id"] title:[ion objectForKey:@"complete_title"] andSynopsis:[ion objectForKey:@"synopsis"]])) {
 		_duration = [[ion objectForKey:@"duration"] intValue];
 		
 		NSMutableString *dateString = [[ion objectForKey:@"original_broadcast_datetime"] mutableCopy];

@@ -2,9 +2,11 @@
 
 @implementation BBCiPlayerEntity
 
-- (id)initWithId:(NSString *)id {
+- (id)initWithId:(NSString *)id title:(NSString *)title andSynopsis:(NSString *)synopsis {
     if ((self = [super init])) {
         _id = [id retain];
+		_title = [title retain];
+		_synopsis = [synopsis retain];
     }
     return self;
 }
@@ -24,18 +26,8 @@
     return _title;
 }
 
-- (void)setTitle:(NSString *)title {
-    [_title release];
-    _title = [title retain];
-}
-
 - (NSString *)synopsis {
     return _synopsis;
-}
-
-- (void)setSynopsis:(NSString *)synopsis {
-    [_synopsis release];
-    _synopsis = [synopsis retain];
 }
 
 - (NSArray *)metadataLabels {

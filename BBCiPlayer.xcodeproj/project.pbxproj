@@ -21,6 +21,7 @@
 		77598C3510FBCF3800EC80D1 /* BBCiPlayerMetadataPreviewControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 77598C3410FBCF3800EC80D1 /* BBCiPlayerMetadataPreviewControl.m */; };
 		77598D4E10FC7BEC00EC80D1 /* BBCiPlayerIonRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 77598D4D10FC7BEB00EC80D1 /* BBCiPlayerIonRequest.m */; };
 		77598E5A10FDF28500EC80D1 /* BBCiPlayerMostPopularController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77598E5910FDF28500EC80D1 /* BBCiPlayerMostPopularController.m */; };
+		77598E8910FE0D3A00EC80D1 /* BBCiPlayerService.m in Sources */ = {isa = PBXBuildFile; fileRef = 77598E8810FE0D3A00EC80D1 /* BBCiPlayerService.m */; };
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		E3D772A610321DDA00D0AEAD /* BackRow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D772A510321DDA00D0AEAD /* BackRow.framework */; };
 		E3F00CAC1030C4F60062016C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3F00CAB1030C4F60062016C /* Cocoa.framework */; };
@@ -58,6 +59,8 @@
 		77598D4D10FC7BEB00EC80D1 /* BBCiPlayerIonRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCiPlayerIonRequest.m; sourceTree = "<group>"; };
 		77598E5810FDF28500EC80D1 /* BBCiPlayerMostPopularController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCiPlayerMostPopularController.h; sourceTree = "<group>"; };
 		77598E5910FDF28500EC80D1 /* BBCiPlayerMostPopularController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCiPlayerMostPopularController.m; sourceTree = "<group>"; };
+		77598E8710FE0D3A00EC80D1 /* BBCiPlayerService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCiPlayerService.h; sourceTree = "<group>"; };
+		77598E8810FE0D3A00EC80D1 /* BBCiPlayerService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCiPlayerService.m; sourceTree = "<group>"; };
 		8D5B49B6048680CD000E48DA /* BBCiPlayer.frappliance */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BBCiPlayer.frappliance; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3D772A510321DDA00D0AEAD /* BackRow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BackRow.framework; path = System/Library/PrivateFrameworks/BackRow.framework; sourceTree = SDKROOT; };
@@ -167,6 +170,8 @@
 				77359A4910FB5D5E00AAA319 /* BBCiPlayerEntity.m */,
 				77359A5410FB623300AAA319 /* BBCiPlayerEpisode.h */,
 				77359A5510FB623300AAA319 /* BBCiPlayerEpisode.m */,
+				77598E8710FE0D3A00EC80D1 /* BBCiPlayerService.h */,
+				77598E8810FE0D3A00EC80D1 /* BBCiPlayerService.m */,
 			);
 			name = Metadata;
 			sourceTree = "<group>";
@@ -291,6 +296,7 @@
 				77598C3510FBCF3800EC80D1 /* BBCiPlayerMetadataPreviewControl.m in Sources */,
 				77598D4E10FC7BEC00EC80D1 /* BBCiPlayerIonRequest.m in Sources */,
 				77598E5A10FDF28500EC80D1 /* BBCiPlayerMostPopularController.m in Sources */,
+				77598E8910FE0D3A00EC80D1 /* BBCiPlayerService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
