@@ -1,5 +1,6 @@
 #import "BBCiPlayerServiceTypeController.h"
 #import "BBCiPlayerHighlightsController.h"
+#import "BBCiPlayerMostPopularController.h"
 #import "BBCiPlayerMediaAsset.h"
 #import "RefData.h"
 
@@ -74,6 +75,10 @@
 
 	if (row == 0) {
 		controller = [[BBCiPlayerHighlightsController alloc] initWithType:_type];
+		[controller autorelease];
+	}
+	else if (row == 1) {
+		controller = [[BBCiPlayerMostPopularController alloc] initWithType:_type];
 		[controller autorelease];
 	}
 	else {

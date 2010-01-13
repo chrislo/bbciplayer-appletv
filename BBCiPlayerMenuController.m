@@ -1,5 +1,7 @@
 #import "BBCiPlayerMenuController.h"
 #import "BBCiPlayerEpisode.h"
+#import "BBCiPlayerMediaAsset.h"
+#import "BBCiPlayerMetadataPreviewControl.h"
 #import "NSDictionary+BSJSONAdditions.h"
 
 @implementation BBCiPlayerMenuController
@@ -57,6 +59,27 @@
 		}
 	}
 	return episodes;
+}
+
+- (void)episodeSelected:(BBCiPlayerEpisode *)episode {
+    BRAlertController *controller = [BRAlertController alertOfType:0 titled:[episode title] primaryText:[episode id] secondaryText:nil];
+    [[self stack] pushController:controller];
+}
+
+- (id)previewControlForEpisode:(BBCiPlayerEpisode *)episode {
+	NSString *path = [[@"http://www.bbc.co.uk/iplayer/images/episode/" stringByAppendingString:[episode id]] stringByAppendingString:@"_512_288.jpg"];
+	NSURL *url = [NSURL URLWithString:path];
+	
+	BBCiPlayerMediaAsset *asset = [[BBCiPlayerMediaAsset alloc] init];
+	[asset setImage:[BRImage imageWithURL:url]];
+	[asset setTitle:[episode title]];
+	[asset setMediaSummary:[episode synopsis]];
+	
+	BBCiPlayerMetadataPreviewControl *preview = [[BBCiPlayerMetadataPreviewControl alloc] initWithEntity:episode];
+	[preview setAsset:asset];
+	[asset release];
+
+	return [preview autorelease];
 }
 
 @end
