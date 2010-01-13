@@ -7,5 +7,6 @@
 }
 
 - (NSString *)titleForRow:(long)row;
+- (NSMutableArray *)episodeItemsFromIon:(NSDictionary *)ion;
 
 @end

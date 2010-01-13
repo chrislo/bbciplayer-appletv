@@ -8,8 +8,17 @@
 
 - (id)initWithService:(NSString *)service {
     if ((self = [super init])) {
-		_service = [service retain];
-    }
+		_service = service;
+		
+		[self setListTitle:@"Highlights"];
+		
+		NSURL *ionURL = [NSURL URLWithString:[[@"http://www.bbc.co.uk/iplayer/ion/featured/service/" stringByAppendingString:service] stringByAppendingString:@"/format/json"]];
+		NSDictionary *ion = [BBCiPlayerIonRequest sendRequestWithURL:ionURL];
+		_items = [[self episodeItemsFromIon:ion] retain];
+		
+		[[self list] setDatasource:self];
+	}
+	
     return self;
 }
 
@@ -17,12 +26,8 @@
     if ((self = [super init])) {
 		_type = type;
 		
-		_items = [[NSMutableArray alloc] init];
-		[_items retain];
-		
 		[self setListTitle:@"Highlights"];
 		
-		NSURL *ionURL;
 		NSString *type;
 		if (_type == BBCiPlayerServiceTypeTV) {
 			type = @"tv";
@@ -30,22 +35,10 @@
 		else if (_type == BBCiPlayerServiceTypeRadio) {
 			type = @"radio";
 		}
-		ionURL = [NSURL URLWithString:[[@"http://www.bbc.co.uk/iplayer/ion/featured/service_type/" stringByAppendingString:type] stringByAppendingString:@"/format/json"]];
-		NSDictionary *data = [BBCiPlayerIonRequest sendRequestWithURL:ionURL];
 		
-		if (data) {
-			NSArray *blocklist = [data objectForKey:@"blocklist"];
-			
-			for (int i = 0; i < [blocklist count]; i++) {
-				NSDictionary *episodeData = [blocklist objectAtIndex:i];
-				NSString *availability = [episodeData objectForKey:@"availability"];
-				if ([availability isEqualToString:@"CURRENT"]) {
-					BBCiPlayerEpisode *episode = [[BBCiPlayerEpisode alloc] initWithIon:episodeData];
-					[_items addObject:episode];
-					[episode release];
-				}
-			}
-		}
+		NSURL *ionURL = [NSURL URLWithString:[[@"http://www.bbc.co.uk/iplayer/ion/featured/service_type/" stringByAppendingString:type] stringByAppendingString:@"/format/json"]];
+		NSDictionary *ion = [BBCiPlayerIonRequest sendRequestWithURL:ionURL];
+		_items = [[self episodeItemsFromIon:ion] retain];
 		
 		[[self list] setDatasource:self];
 	}
