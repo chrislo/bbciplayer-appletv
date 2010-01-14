@@ -52,17 +52,16 @@
 
 	if (row == 0) {
 		controller = [[BBCiPlayerHighlightsController alloc] initWithType:_type];
-		[controller autorelease];
 	}
 	else if (row == 1) {
 		controller = [[BBCiPlayerMostPopularController alloc] initWithType:_type];
-		[controller autorelease];
 	}
 	else {
 		BBCiPlayerService *service = [_items objectAtIndex:row];
 		controller = [[BBCiPlayerServiceController alloc] initWithService:service];
 	}
-	
+    
+    [controller autorelease];
 	[[self stack] pushController:controller];
 }
 

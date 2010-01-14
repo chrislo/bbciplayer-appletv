@@ -2,7 +2,6 @@
 #import "BBCiPlayerEpisode.h"
 #import "BBCiPlayerMediaAsset.h"
 #import "BBCiPlayerMetadataPreviewControl.h"
-#import "NSDictionary+BSJSONAdditions.h"
 
 @implementation BBCiPlayerMenuController
 
@@ -53,7 +52,15 @@
 		NSArray *blocklist = [ion objectForKey:@"blocklist"];
 		
 		for (int i = 0; i < [blocklist count]; i++) {
-			NSDictionary *episodeData = [blocklist objectAtIndex:i];
+				
+			NSDictionary *episodeData;
+			if ([[blocklist objectAtIndex:i] objectForKey:@"episode"]) {
+				episodeData = [[blocklist objectAtIndex:i] objectForKey:@"episode"];
+			}
+			else {
+				episodeData = [blocklist objectAtIndex:i];
+			}
+			
 			NSString *availability = [episodeData objectForKey:@"availability"];
 			if ([availability isEqualToString:@"CURRENT"]) {
 				BBCiPlayerEpisode *episode = [[BBCiPlayerEpisode alloc] initWithIon:episodeData];

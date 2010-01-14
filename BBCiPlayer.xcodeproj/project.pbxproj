@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		770ACE6710FF76EB00689649 /* BBCiPlayerScheduleDayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 770ACE6610FF76EB00689649 /* BBCiPlayerScheduleDayController.m */; };
 		77359A4A10FB5D5E00AAA319 /* BBCiPlayerEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 77359A4910FB5D5E00AAA319 /* BBCiPlayerEntity.m */; };
 		77359A5610FB623300AAA319 /* BBCiPlayerEpisode.m in Sources */ = {isa = PBXBuildFile; fileRef = 77359A5510FB623300AAA319 /* BBCiPlayerEpisode.m */; };
+		77555E4610FFC3E400A48795 /* JSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77555E4510FFC3E400A48795 /* JSON.framework */; };
+		77555E8E10FFC97100A48795 /* JSON.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 77555E4510FFC3E400A48795 /* JSON.framework */; };
 		7759844E10F671D400EC80D1 /* MainMenuPreview.png in Resources */ = {isa = PBXBuildFile; fileRef = 7759844D10F671D400EC80D1 /* MainMenuPreview.png */; };
 		7759848410F6B01B00EC80D1 /* BBCiPlayerServiceTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7759848310F6B01B00EC80D1 /* BBCiPlayerServiceTypeController.m */; };
 		775984C710F6BB4400EC80D1 /* RefData.m in Sources */ = {isa = PBXBuildFile; fileRef = 775984C610F6BB4400EC80D1 /* RefData.m */; };
@@ -16,8 +19,6 @@
 		775987D410F7F92E00EC80D1 /* BBCiPlayerMediaAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 775987D310F7F92E00EC80D1 /* BBCiPlayerMediaAsset.m */; };
 		7759880F10FA40A800EC80D1 /* BBCiPlayerHighlightsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7759880E10FA40A800EC80D1 /* BBCiPlayerHighlightsController.m */; };
 		77598BF510FBCAC600EC80D1 /* BBCiPlayerMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77598BF410FBCAC600EC80D1 /* BBCiPlayerMenuController.m */; };
-		77598C1310FBCE2300EC80D1 /* NSDictionary+BSJSONAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 77598C1010FBCE2200EC80D1 /* NSDictionary+BSJSONAdditions.m */; };
-		77598C1410FBCE2300EC80D1 /* NSScanner+BSJSONAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 77598C1210FBCE2300EC80D1 /* NSScanner+BSJSONAdditions.m */; };
 		77598C3510FBCF3800EC80D1 /* BBCiPlayerMetadataPreviewControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 77598C3410FBCF3800EC80D1 /* BBCiPlayerMetadataPreviewControl.m */; };
 		77598D4E10FC7BEC00EC80D1 /* BBCiPlayerIonRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 77598D4D10FC7BEB00EC80D1 /* BBCiPlayerIonRequest.m */; };
 		77598E5A10FDF28500EC80D1 /* BBCiPlayerMostPopularController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77598E5910FDF28500EC80D1 /* BBCiPlayerMostPopularController.m */; };
@@ -25,6 +26,7 @@
 		77598EC810FE2B0200EC80D1 /* BBCiPlayerServiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77598EC710FE2B0200EC80D1 /* BBCiPlayerServiceController.m */; };
 		77598EF610FE331A00EC80D1 /* BBCiPlayerScheduleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77598EF510FE331A00EC80D1 /* BBCiPlayerScheduleController.m */; };
 		775990D110FE807A00EC80D1 /* ServiceThumbnails in Resources */ = {isa = PBXBuildFile; fileRef = 7759908D10FE807A00EC80D1 /* ServiceThumbnails */; };
+		7788565110FF9240005F5D87 /* MoviePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7788565010FF9240005F5D87 /* MoviePlayer.m */; };
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		E3D772A610321DDA00D0AEAD /* BackRow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D772A510321DDA00D0AEAD /* BackRow.framework */; };
 		E3F00CAC1030C4F60062016C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3F00CAB1030C4F60062016C /* Cocoa.framework */; };
@@ -33,13 +35,29 @@
 		E3F00CC51030C9660062016C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E3F00CC41030C9660062016C /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		77555E8C10FFC92900A48795 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				77555E8E10FFC97100A48795 /* JSON.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		32DBCF630370AF2F00C91783 /* BBCiPlayer_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCiPlayer_Prefix.pch; sourceTree = "<group>"; };
+		770ACE6510FF76EB00689649 /* BBCiPlayerScheduleDayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCiPlayerScheduleDayController.h; sourceTree = "<group>"; };
+		770ACE6610FF76EB00689649 /* BBCiPlayerScheduleDayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCiPlayerScheduleDayController.m; sourceTree = "<group>"; };
 		77359A4810FB5D5E00AAA319 /* BBCiPlayerEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCiPlayerEntity.h; sourceTree = "<group>"; };
 		77359A4910FB5D5E00AAA319 /* BBCiPlayerEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCiPlayerEntity.m; sourceTree = "<group>"; };
 		77359A5410FB623300AAA319 /* BBCiPlayerEpisode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCiPlayerEpisode.h; sourceTree = "<group>"; };
 		77359A5510FB623300AAA319 /* BBCiPlayerEpisode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCiPlayerEpisode.m; sourceTree = "<group>"; };
+		77555E4510FFC3E400A48795 /* JSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JSON.framework; sourceTree = "<group>"; };
 		7759844D10F671D400EC80D1 /* MainMenuPreview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MainMenuPreview.png; sourceTree = "<group>"; };
 		7759848210F6B01B00EC80D1 /* BBCiPlayerServiceTypeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCiPlayerServiceTypeController.h; sourceTree = "<group>"; };
 		7759848310F6B01B00EC80D1 /* BBCiPlayerServiceTypeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCiPlayerServiceTypeController.m; sourceTree = "<group>"; };
@@ -52,10 +70,6 @@
 		7759880E10FA40A800EC80D1 /* BBCiPlayerHighlightsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCiPlayerHighlightsController.m; sourceTree = "<group>"; };
 		77598BF310FBCAC600EC80D1 /* BBCiPlayerMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCiPlayerMenuController.h; sourceTree = "<group>"; };
 		77598BF410FBCAC600EC80D1 /* BBCiPlayerMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCiPlayerMenuController.m; sourceTree = "<group>"; };
-		77598C0F10FBCE2200EC80D1 /* NSDictionary+BSJSONAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+BSJSONAdditions.h"; sourceTree = "<group>"; };
-		77598C1010FBCE2200EC80D1 /* NSDictionary+BSJSONAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+BSJSONAdditions.m"; sourceTree = "<group>"; };
-		77598C1110FBCE2300EC80D1 /* NSScanner+BSJSONAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSScanner+BSJSONAdditions.h"; sourceTree = "<group>"; };
-		77598C1210FBCE2300EC80D1 /* NSScanner+BSJSONAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSScanner+BSJSONAdditions.m"; sourceTree = "<group>"; };
 		77598C3310FBCF3800EC80D1 /* BBCiPlayerMetadataPreviewControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCiPlayerMetadataPreviewControl.h; sourceTree = "<group>"; };
 		77598C3410FBCF3800EC80D1 /* BBCiPlayerMetadataPreviewControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCiPlayerMetadataPreviewControl.m; sourceTree = "<group>"; };
 		77598D4C10FC7BEB00EC80D1 /* BBCiPlayerIonRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCiPlayerIonRequest.h; sourceTree = "<group>"; };
@@ -69,6 +83,8 @@
 		77598EF410FE331A00EC80D1 /* BBCiPlayerScheduleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCiPlayerScheduleController.h; sourceTree = "<group>"; };
 		77598EF510FE331A00EC80D1 /* BBCiPlayerScheduleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCiPlayerScheduleController.m; sourceTree = "<group>"; };
 		7759908D10FE807A00EC80D1 /* ServiceThumbnails */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ServiceThumbnails; sourceTree = "<group>"; };
+		7788564F10FF9240005F5D87 /* MoviePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviePlayer.h; sourceTree = "<group>"; };
+		7788565010FF9240005F5D87 /* MoviePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviePlayer.m; sourceTree = "<group>"; };
 		8D5B49B6048680CD000E48DA /* BBCiPlayer.frappliance */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BBCiPlayer.frappliance; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3D772A510321DDA00D0AEAD /* BackRow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BackRow.framework; path = System/Library/PrivateFrameworks/BackRow.framework; sourceTree = SDKROOT; };
@@ -87,6 +103,7 @@
 				E3F00CAC1030C4F60062016C /* Cocoa.framework in Frameworks */,
 				E3F00CB01030C5190062016C /* Foundation.framework in Frameworks */,
 				E3D772A610321DDA00D0AEAD /* BackRow.framework in Frameworks */,
+				77555E4610FFC3E400A48795 /* JSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,7 +147,6 @@
 		08FB77AFFE84173DC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				77598C1510FBCE3900EC80D1 /* JSON */,
 				775987FB10F8017300EC80D1 /* Appliance Classes */,
 				775987FA10F8015800EC80D1 /* Media */,
 				77359A4710FB5D3F00AAA319 /* Metadata */,
@@ -145,6 +161,7 @@
 				E3D772A510321DDA00D0AEAD /* BackRow.framework */,
 				E3F00CAF1030C5190062016C /* Foundation.framework */,
 				E3F00CAB1030C4F60062016C /* Cocoa.framework */,
+				77555E4510FFC3E400A48795 /* JSON.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -200,6 +217,8 @@
 				77598EC710FE2B0200EC80D1 /* BBCiPlayerServiceController.m */,
 				77598EF410FE331A00EC80D1 /* BBCiPlayerScheduleController.h */,
 				77598EF510FE331A00EC80D1 /* BBCiPlayerScheduleController.m */,
+				770ACE6510FF76EB00689649 /* BBCiPlayerScheduleDayController.h */,
+				770ACE6610FF76EB00689649 /* BBCiPlayerScheduleDayController.m */,
 			);
 			name = "Menu Controllers";
 			sourceTree = "<group>";
@@ -211,6 +230,8 @@
 				77598C3410FBCF3800EC80D1 /* BBCiPlayerMetadataPreviewControl.m */,
 				775987D210F7F92E00EC80D1 /* BBCiPlayerMediaAsset.h */,
 				775987D310F7F92E00EC80D1 /* BBCiPlayerMediaAsset.m */,
+				7788564F10FF9240005F5D87 /* MoviePlayer.h */,
+				7788565010FF9240005F5D87 /* MoviePlayer.m */,
 			);
 			name = Media;
 			sourceTree = "<group>";
@@ -228,17 +249,6 @@
 			name = "Appliance Classes";
 			sourceTree = "<group>";
 		};
-		77598C1510FBCE3900EC80D1 /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				77598C0F10FBCE2200EC80D1 /* NSDictionary+BSJSONAdditions.h */,
-				77598C1010FBCE2200EC80D1 /* NSDictionary+BSJSONAdditions.m */,
-				77598C1110FBCE2300EC80D1 /* NSScanner+BSJSONAdditions.h */,
-				77598C1210FBCE2300EC80D1 /* NSScanner+BSJSONAdditions.m */,
-			);
-			name = JSON;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -249,6 +259,7 @@
 				8D5B49AF048680CD000E48DA /* Resources */,
 				8D5B49B1048680CD000E48DA /* Sources */,
 				8D5B49B3048680CD000E48DA /* Frameworks */,
+				77555E8C10FFC92900A48795 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -305,14 +316,14 @@
 				77359A4A10FB5D5E00AAA319 /* BBCiPlayerEntity.m in Sources */,
 				77359A5610FB623300AAA319 /* BBCiPlayerEpisode.m in Sources */,
 				77598BF510FBCAC600EC80D1 /* BBCiPlayerMenuController.m in Sources */,
-				77598C1310FBCE2300EC80D1 /* NSDictionary+BSJSONAdditions.m in Sources */,
-				77598C1410FBCE2300EC80D1 /* NSScanner+BSJSONAdditions.m in Sources */,
 				77598C3510FBCF3800EC80D1 /* BBCiPlayerMetadataPreviewControl.m in Sources */,
 				77598D4E10FC7BEC00EC80D1 /* BBCiPlayerIonRequest.m in Sources */,
 				77598E5A10FDF28500EC80D1 /* BBCiPlayerMostPopularController.m in Sources */,
 				77598E8910FE0D3A00EC80D1 /* BBCiPlayerService.m in Sources */,
 				77598EC810FE2B0200EC80D1 /* BBCiPlayerServiceController.m in Sources */,
 				77598EF610FE331A00EC80D1 /* BBCiPlayerScheduleController.m in Sources */,
+				770ACE6710FF76EB00689649 /* BBCiPlayerScheduleDayController.m in Sources */,
+				7788565110FF9240005F5D87 /* MoviePlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,10 +359,13 @@
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
+					/Volumes/JSON_2.0.1,
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_4)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/PrivateFrameworks\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_4 = "\"$(SRCROOT)\"";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -378,10 +392,13 @@
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
+					/Volumes/JSON_2.0.1,
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_4)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/PrivateFrameworks\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_4 = "\"$(SRCROOT)\"";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;

@@ -1,4 +1,5 @@
 #import "BBCiPlayerScheduleController.h"
+#import "BBCiPlayerScheduleDayController.h"
 #import "BBCiPlayerEntity.h"
 #import "BBCiPlayerService.h"
 
@@ -39,7 +40,11 @@
 }
 
 - (void)itemSelected:(long)row {
-
+    NSTimeInterval interval = [[[_items objectAtIndex:row] id] doubleValue];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:interval];	
+    BBCiPlayerScheduleDayController *controller = [[BBCiPlayerScheduleDayController alloc] initWithService:_service andDate:date];
+    [controller autorelease];
+    [[self stack] pushController:controller];
 }
 
 @end
