@@ -5,6 +5,8 @@
 - (id)initWithIon:(NSDictionary *)ion {
     if ((self = [super initWithId:[ion objectForKey:@"id"] title:[ion objectForKey:@"complete_title"] andSynopsis:[ion objectForKey:@"synopsis"]])) {
 		_duration = [[ion objectForKey:@"duration"] intValue];
+		_mediaType = [[ion objectForKey:@"media_type"] retain];
+		_version = [[ion objectForKey:@"play_version_id"] retain];
 		
 		NSMutableString *dateString = [[ion objectForKey:@"original_broadcast_datetime"] mutableCopy];
 		[dateString replaceOccurrencesOfString:@"T" withString:@" " options:NSLiteralSearch range:NSMakeRange(0, [dateString length])];
@@ -24,9 +26,18 @@
 }
 
 - (void)dealloc {
+	[_version release];
 	[_broadcast release];
 	[_categories release];
 	[super dealloc];
+}
+
+- (NSString *)mediaType {
+	return _mediaType;
+}
+
+- (NSString *)version {
+	return _version;
 }
 
 - (NSArray *)metadataLabels {
