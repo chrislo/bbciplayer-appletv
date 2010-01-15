@@ -27,6 +27,9 @@
 		77598EF610FE331A00EC80D1 /* BBCiPlayerScheduleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77598EF510FE331A00EC80D1 /* BBCiPlayerScheduleController.m */; };
 		775990D110FE807A00EC80D1 /* ServiceThumbnails in Resources */ = {isa = PBXBuildFile; fileRef = 7759908D10FE807A00EC80D1 /* ServiceThumbnails */; };
 		7788565110FF9240005F5D87 /* MoviePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7788565010FF9240005F5D87 /* MoviePlayer.m */; };
+		7795C452110112CE003D6792 /* BBCiPlayerCategoriesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7795C451110112CE003D6792 /* BBCiPlayerCategoriesController.m */; };
+		7795C457110112E0003D6792 /* BBCiPlayerCategoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7795C456110112E0003D6792 /* BBCiPlayerCategoryController.m */; };
+		7795C4CB1101165A003D6792 /* BBCiPlayerCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7795C4CA1101165A003D6792 /* BBCiPlayerCategory.m */; };
 		779A88D110FFF69800656ABA /* bin in Resources */ = {isa = PBXBuildFile; fileRef = 779A88CD10FFF69800656ABA /* bin */; };
 		779A89A71100E51100656ABA /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 779A89A61100E51100656ABA /* OpenGL.framework */; };
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
@@ -87,6 +90,12 @@
 		7759908D10FE807A00EC80D1 /* ServiceThumbnails */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ServiceThumbnails; sourceTree = "<group>"; };
 		7788564F10FF9240005F5D87 /* MoviePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviePlayer.h; sourceTree = "<group>"; };
 		7788565010FF9240005F5D87 /* MoviePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviePlayer.m; sourceTree = "<group>"; };
+		7795C450110112CE003D6792 /* BBCiPlayerCategoriesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCiPlayerCategoriesController.h; sourceTree = "<group>"; };
+		7795C451110112CE003D6792 /* BBCiPlayerCategoriesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCiPlayerCategoriesController.m; sourceTree = "<group>"; };
+		7795C455110112E0003D6792 /* BBCiPlayerCategoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCiPlayerCategoryController.h; sourceTree = "<group>"; };
+		7795C456110112E0003D6792 /* BBCiPlayerCategoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCiPlayerCategoryController.m; sourceTree = "<group>"; };
+		7795C4C91101165A003D6792 /* BBCiPlayerCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCiPlayerCategory.h; sourceTree = "<group>"; };
+		7795C4CA1101165A003D6792 /* BBCiPlayerCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCiPlayerCategory.m; sourceTree = "<group>"; };
 		779A88CD10FFF69800656ABA /* bin */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bin; sourceTree = "<group>"; };
 		779A89A61100E51100656ABA /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		8D5B49B6048680CD000E48DA /* BBCiPlayer.frappliance */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BBCiPlayer.frappliance; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,6 +214,8 @@
 				77359A5510FB623300AAA319 /* BBCiPlayerEpisode.m */,
 				77598E8710FE0D3A00EC80D1 /* BBCiPlayerService.h */,
 				77598E8810FE0D3A00EC80D1 /* BBCiPlayerService.m */,
+				7795C4C91101165A003D6792 /* BBCiPlayerCategory.h */,
+				7795C4CA1101165A003D6792 /* BBCiPlayerCategory.m */,
 			);
 			name = Metadata;
 			sourceTree = "<group>";
@@ -226,6 +237,10 @@
 				77598EF510FE331A00EC80D1 /* BBCiPlayerScheduleController.m */,
 				770ACE6510FF76EB00689649 /* BBCiPlayerScheduleDayController.h */,
 				770ACE6610FF76EB00689649 /* BBCiPlayerScheduleDayController.m */,
+				7795C450110112CE003D6792 /* BBCiPlayerCategoriesController.h */,
+				7795C451110112CE003D6792 /* BBCiPlayerCategoriesController.m */,
+				7795C455110112E0003D6792 /* BBCiPlayerCategoryController.h */,
+				7795C456110112E0003D6792 /* BBCiPlayerCategoryController.m */,
 			);
 			name = "Menu Controllers";
 			sourceTree = "<group>";
@@ -332,6 +347,9 @@
 				77598EF610FE331A00EC80D1 /* BBCiPlayerScheduleController.m in Sources */,
 				770ACE6710FF76EB00689649 /* BBCiPlayerScheduleDayController.m in Sources */,
 				7788565110FF9240005F5D87 /* MoviePlayer.m in Sources */,
+				7795C452110112CE003D6792 /* BBCiPlayerCategoriesController.m in Sources */,
+				7795C457110112E0003D6792 /* BBCiPlayerCategoryController.m in Sources */,
+				7795C4CB1101165A003D6792 /* BBCiPlayerCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

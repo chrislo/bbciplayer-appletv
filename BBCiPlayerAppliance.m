@@ -1,8 +1,11 @@
 #import "BBCiPlayerAppliance.h"
+#import "BBCiPlayerMenuController.h"
 #import "BBCiPlayerServiceTypeController.h"
+#import "BBCiPlayerCategoriesController.h"
 
 #define TV_IDENTIFIER @"tv"
 #define RADIO_IDENTIFIER @"radio"
+#define CATEGORIES_IDENTIFIER @"categories"
 
 @implementation BBCiPlayerAppliance
 
@@ -46,13 +49,16 @@
 -(id)controllerForIdentifier:(id)ident args:(id)args {
 	
 	NSString *identifier = (NSString *)ident;
-	BRController *controller;
+	BBCiPlayerMenuController *controller;
 	
 	if ([identifier isEqualToString:TV_IDENTIFIER]) {
 		controller = [[BBCiPlayerServiceTypeController alloc] initWithType:BBCiPlayerServiceTypeTV];
 	}
 	else if ([identifier isEqualToString:RADIO_IDENTIFIER]) {
 		controller = [[BBCiPlayerServiceTypeController alloc] initWithType:BBCiPlayerServiceTypeRadio];
+	}
+	else if ([identifier isEqualToString:CATEGORIES_IDENTIFIER]) {
+		controller = [[BBCiPlayerCategoriesController alloc] init];
 	}
 	
 	return [controller autorelease];

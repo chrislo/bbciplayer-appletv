@@ -2,6 +2,7 @@
 #import "BBCiPlayerHighlightsController.h"
 #import "BBCiPlayerMostPopularController.h"
 #import "BBCiPlayerScheduleController.h"
+#import "BBCiPlayerCategoriesController.h"
 #import "BBCiPlayerEntity.h"
 #import "BBCiPlayerService.h"
 
@@ -34,21 +35,23 @@
 }
 
 - (void)itemSelected:(long)row {
-	BRController *controller;
+	BBCiPlayerMenuController *controller;
 
 	if (row == 0) {
 		controller = [[BBCiPlayerHighlightsController alloc] initWithService:_service];
-		[controller autorelease];
 	}
 	else if (row == 1) {
 		controller = [[BBCiPlayerMostPopularController alloc] initWithService:_service];
-		[controller autorelease];
 	}
 	else if (row == 2) {
 		controller = [[BBCiPlayerScheduleController alloc] initWithService:_service];
-		[controller autorelease];
+	}
+	else if (row == 3) {
+		controller = [[BBCiPlayerCategoriesController alloc] initWithService:_service];
 	}
 	
+	
+	[controller autorelease];
 	[[self stack] pushController:controller];
 }
 

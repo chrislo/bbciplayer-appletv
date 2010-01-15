@@ -1,4 +1,5 @@
 #import "BBCiPlayerMostPopularController.h"
+#import "BBCiPlayerCategory.h"
 #import "BBCiPlayerEpisode.h"
 #import "BBCiPlayerService.h"
 #import "BBCiPlayerIonRequest.h"
@@ -12,7 +13,7 @@
 		[self setListTitle:@"Most Popular"];
 		[self setListIcon:[_service thumbnail]];
 		
-		NSURL *ionURL = [NSURL URLWithString:[[@"http://www.bbc.co.uk/iplayer/ion/mostpopular/service/" stringByAppendingString:[_service id]] stringByAppendingString:@"/format/json"]];
+		NSURL *ionURL = [NSURL URLWithString:[[@"http://www.bbc.co.uk/iplayer/ion/mostpopular/masterbrand/" stringByAppendingString:[_service id]] stringByAppendingString:@"/format/json"]];
 		NSDictionary *ion = [BBCiPlayerIonRequest sendRequestWithURL:ionURL];
 		_items = [[self episodeItemsFromIon:ion] retain];
 		
@@ -46,8 +47,35 @@
     return self;
 }
 
+- (id)initWithCategory:(BBCiPlayerCategory *)category andServiceType:(BBCiPlayerServiceType)type {
+    if ((self = [super init])) {
+		_category = [category retain];
+		_type = type;
+		
+		NSString *type;
+		if (_type == BBCiPlayerServiceTypeTV) {
+			type = @"tv";
+			[self setListTitle:@"Most Popular TV"];
+		}
+		else if (_type == BBCiPlayerServiceTypeRadio) {
+			type = @"radio";
+			[self setListTitle:@"Most Popular Radio"];
+		}
+		
+		NSString *ionURLString = [NSString stringWithFormat:@"http://www.bbc.co.uk/iplayer/ion/mostpopular/category/%@/service_type/%@/format/json", [_category id], type];
+		NSURL *ionURL = [NSURL URLWithString:ionURLString];
+		NSDictionary *ion = [BBCiPlayerIonRequest sendRequestWithURL:ionURL];
+		_items = [[self episodeItemsFromIon:ion] retain];
+		
+		[[self list] setDatasource:self];
+	}
+	
+    return self;
+}
+
 - (void)dealloc {
 	[_service release];
+	[_category release];
 	[super dealloc];
 }
 

@@ -1,25 +1,26 @@
 #import "RefData.h"
+#import "BBCiPlayerCategory.h"
 #import "BBCiPlayerService.h"
 
 @implementation RefData
 
 + (NSArray *)categories {
 	return [NSArray arrayWithObjects:
-		[NSDictionary dictionaryWithObjectsAndKeys:@"Children's",        @"name", @"childrens",           @"identifier", nil],
-		[NSDictionary dictionaryWithObjectsAndKeys:@"Comedy",            @"name", @"comedy",              @"identifier", nil],
-		[NSDictionary dictionaryWithObjectsAndKeys:@"Drama",             @"name", @"drama",               @"identifier", nil],
-		[NSDictionary dictionaryWithObjectsAndKeys:@"Entertainment",     @"name", @"entertainment",       @"identifier", nil],
-		[NSDictionary dictionaryWithObjectsAndKeys:@"Factual",           @"name", @"factual",             @"identifier", nil],
-		[NSDictionary dictionaryWithObjectsAndKeys:@"Films",             @"name", @"films",               @"identifier", nil],
-		[NSDictionary dictionaryWithObjectsAndKeys:@"Music",             @"name", @"music",               @"identifier", nil],
-		[NSDictionary dictionaryWithObjectsAndKeys:@"News",              @"name", @"news",                @"identifier", nil],
-		[NSDictionary dictionaryWithObjectsAndKeys:@"Religion & Ethics", @"name", @"religion_and_ethics", @"identifier", nil],
-		[NSDictionary dictionaryWithObjectsAndKeys:@"Sport",             @"name", @"sport",               @"identifier", nil],
-		[NSDictionary dictionaryWithObjectsAndKeys:@"Sign Zone",         @"name", @"signed",              @"identifier", nil],
-		[NSDictionary dictionaryWithObjectsAndKeys:@"Audio Described",   @"name", @"audiodescribed",      @"identifier", nil],
-		[NSDictionary dictionaryWithObjectsAndKeys:@"Northern Ireland",  @"name", @"northern_ireland",    @"identifier", nil],
-		[NSDictionary dictionaryWithObjectsAndKeys:@"Scotland",          @"name", @"scotland",            @"identifier", nil],
-		[NSDictionary dictionaryWithObjectsAndKeys:@"Wales",             @"name", @"wales",               @"identifier", nil],
+		[BBCiPlayerCategory categoryWithId:@"9100001" andTitle:@"Children's"],
+		[BBCiPlayerCategory categoryWithId:@"9100098" andTitle:@"Comedy"],
+		[BBCiPlayerCategory categoryWithId:@"9100003" andTitle:@"Drama"],
+		[BBCiPlayerCategory categoryWithId:@"9100099" andTitle:@"Entertainment"],
+		[BBCiPlayerCategory categoryWithId:@"9100005" andTitle:@"Factual"],
+		[BBCiPlayerCategory categoryWithId:@"9100093" andTitle:@"Films"],
+		[BBCiPlayerCategory categoryWithId:@"9100006" andTitle:@"Music"],
+		[BBCiPlayerCategory categoryWithId:@"9100007" andTitle:@"News"],
+		[BBCiPlayerCategory categoryWithId:@"9100008" andTitle:@"Religion & Ethics"],
+		[BBCiPlayerCategory categoryWithId:@"9100010" andTitle:@"Sport"],
+		[BBCiPlayerCategory categoryWithId:@"signed" andTitle:@"Sign Zone"],
+		[BBCiPlayerCategory categoryWithId:@"dubbedaudiodescribed" andTitle:@"Audio Described"],
+		[BBCiPlayerCategory categoryWithId:@"9100094" andTitle:@"Northern Ireland"],
+		[BBCiPlayerCategory categoryWithId:@"9100095" andTitle:@"Scotland"],
+		[BBCiPlayerCategory categoryWithId:@"9100097" andTitle:@"Wales"],
 	nil];
 }
 
