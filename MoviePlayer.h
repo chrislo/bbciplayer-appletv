@@ -16,4 +16,8 @@
 + (void)playMovie:(NSString *)pid ofMediaType:(NSString *)type;
 + (NSDictionary *)getStreamDataForVersion:(NSString *)pid ofMediaType:(NSString *)type;
 
++ (void)enableBRRendering;
++ (void)disableBRRendering;
++ (void)mplayerTerminated:(NSNotification *)note;
+
 @end

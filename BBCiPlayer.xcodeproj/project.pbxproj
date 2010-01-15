@@ -28,6 +28,7 @@
 		775990D110FE807A00EC80D1 /* ServiceThumbnails in Resources */ = {isa = PBXBuildFile; fileRef = 7759908D10FE807A00EC80D1 /* ServiceThumbnails */; };
 		7788565110FF9240005F5D87 /* MoviePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7788565010FF9240005F5D87 /* MoviePlayer.m */; };
 		779A88D110FFF69800656ABA /* bin in Resources */ = {isa = PBXBuildFile; fileRef = 779A88CD10FFF69800656ABA /* bin */; };
+		779A89A71100E51100656ABA /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 779A89A61100E51100656ABA /* OpenGL.framework */; };
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		E3D772A610321DDA00D0AEAD /* BackRow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D772A510321DDA00D0AEAD /* BackRow.framework */; };
 		E3F00CAC1030C4F60062016C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3F00CAB1030C4F60062016C /* Cocoa.framework */; };
@@ -87,6 +88,7 @@
 		7788564F10FF9240005F5D87 /* MoviePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviePlayer.h; sourceTree = "<group>"; };
 		7788565010FF9240005F5D87 /* MoviePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviePlayer.m; sourceTree = "<group>"; };
 		779A88CD10FFF69800656ABA /* bin */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bin; sourceTree = "<group>"; };
+		779A89A61100E51100656ABA /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		8D5B49B6048680CD000E48DA /* BBCiPlayer.frappliance */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BBCiPlayer.frappliance; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3D772A510321DDA00D0AEAD /* BackRow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BackRow.framework; path = System/Library/PrivateFrameworks/BackRow.framework; sourceTree = SDKROOT; };
@@ -106,6 +108,7 @@
 				E3F00CB01030C5190062016C /* Foundation.framework in Frameworks */,
 				E3D772A610321DDA00D0AEAD /* BackRow.framework in Frameworks */,
 				77555E4610FFC3E400A48795 /* JSON.framework in Frameworks */,
+				779A89A71100E51100656ABA /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +168,7 @@
 				E3F00CAF1030C5190062016C /* Foundation.framework */,
 				E3F00CAB1030C4F60062016C /* Cocoa.framework */,
 				77555E4510FFC3E400A48795 /* JSON.framework */,
+				779A89A61100E51100656ABA /* OpenGL.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";

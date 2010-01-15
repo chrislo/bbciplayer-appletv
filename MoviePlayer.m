@@ -1,13 +1,46 @@
-//
-//  MoviePlayer.m
-//  SimpleBrowser
-//
-//  Created by Jonathan Tweed on 06/01/2010.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
-//
-
 #import "MoviePlayer.h"
+#import <OpenGL/OpenGL.h>
+#import <objc/objc-class.h>
 
+@class BRRenderContext;
+@class CARenderer;
+
+@interface BRRenderer (NitoAdditions)
+
+- (BRRenderContext *) context;
+
+- (CARenderer*) renderer;
+- (void) setRenderer:(CARenderer*) theRenderer;
+
+@end
+
+@implementation BRRenderer (NitoAdditions)
+
+- (BRRenderContext *) context
+{
+	Class klass = [self class];
+	Ivar ret = class_getInstanceVariable(klass, "_context");
+
+	return *(BRRenderContext * *)(((char *)self)+ret->ivar_offset);
+}
+
+- (CARenderer*) renderer {
+	Class klass = [self class];
+	Ivar ret = class_getInstanceVariable(klass, "_renderer");
+
+	return *(CARenderer * *)(((char *)self)+ret->ivar_offset);
+}
+
+- (void) setRenderer:(CARenderer*) theRenderer{
+	Class klass = [self class];
+	Ivar ret = class_getInstanceVariable(klass, "_renderer");
+
+	*(CARenderer * *)(((char *)self)+ret->ivar_offset) = theRenderer;
+}
+@end
+
+static CARenderer *_brRenderer;
+static BOOL _screensaverEnabled;
 
 @implementation MoviePlayer
 
@@ -59,9 +92,65 @@
 		NSPipe *videoPipe = [NSPipe pipe];
 		[flvstreamerTask setStandardOutput:videoPipe];
 		[mplayerTask setStandardInput:videoPipe];
-	
-		[flvstreamerTask launch];
+		
+		
+			[[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(mplayerTerminated:)
+                                               name:NSTaskDidTerminateNotification
+                                             object:mplayerTask];
+											 
+											 
+		
+		//if ([type isEqualToString:@"video"]) {
+			_screensaverEnabled = [[BRSettingsFacade sharedInstance] screenSaverEnabled];
+			[[BRSettingsFacade sharedInstance] setScreenSaverEnabled:NO];
+			[self disableBRRendering];
+			
+			
+			[flvstreamerTask launch];
 		[mplayerTask launch];
+			
+	/*		
+			  ProcessSerialNumber psn;
+  OSErr err = 0;
+  
+  // loop until we find the process
+
+  while([mplayerTask isRunning] && procNotFound == (err = GetProcessForPID([mplayerTask processIdentifier], &psn))) {
+    // wait...
+    [NSThread sleepUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.5]];
+  }
+  
+  if(err) {
+    NSLog(@"Error getting PSN: %d", err);
+  } else {
+    NSLog(@"Waiting for process to be visible");
+    // wait for it to be visible
+    while([mplayerTask isRunning] && !IsProcessVisible(&psn)) {
+      // do nothing!
+      [NSThread sleepUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.5]];
+    }
+    if( [mplayerTask isRunning] ){
+      NSLog(@"Process is visible, making it front");
+      SetFrontProcess(&psn);
+    }
+  }  
+  
+  */
+  
+		//}
+		
+		// YOU BIG IDIOT
+		// YOU ARE RENABLING THE RENDERING IMMEDIATELY YOURSELF
+		// DUHHHH
+		
+		// THIS NEEDS TO BE DONE WHEN MPLAYER QUITS
+		// so probably can take out the front process stuff (maybe) but not the disable/enable. try both ways.
+		
+//		if ([type isEqualToString:@"video"]) {
+//			[self enableBRRendering];
+//			[[BRSettingsFacade singleton] setScreenSaverEnabled:_screensaverEnabled];
+//		}
 	}
 }
 
@@ -154,5 +243,45 @@
     [xml release];
     return data;
 }
+
+// adapted from xbmc
++ (void)enableBRRendering {
+    BRDisplayManager *displayManager = [BRDisplayManager sharedInstance];
+    
+    //restore the renderer
+    BRRenderer *theRender = [BRRenderer sharedInstance];
+    [theRender setRenderer:_brRenderer];
+    [displayManager captureAllDisplays];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"BRDisplayManagerConfigurationEnd" object: [BRDisplayManager sharedInstance]];
+}
+ 
+// adapted from xbmc
++ (void)disableBRRendering {
+    BRDisplayManager *displayManager = [BRDisplayManager sharedInstance];
+    [displayManager releaseAllDisplays];
+    
+    //grab the context and release it
+    BRRenderer *theRender = [BRRenderer sharedInstance];
+    
+    //we need to replace the CARenderer in BRRenderer or Finder crashes in its RenderThread
+    //save it so it can be restored later
+    _brRenderer = [theRender renderer];
+    [theRender setRenderer:nil];
+    
+    //this enables XBMC to run as a proper fullscreen app (otherwise we get an invalid drawable)
+    CGLContextObj ctx = [[theRender context] CGLContext];
+    CGLClearDrawable( ctx );
+}
+
++ (void)mplayerTerminated:(NSNotification *)note
+{
+	[self enableBRRendering];
+				[[BRSettingsFacade singleton] setScreenSaverEnabled:_screensaverEnabled];
+	
+	//remove our listener
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 
 @end
