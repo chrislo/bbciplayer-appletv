@@ -11,10 +11,12 @@
 	BBCiPlayerService *_service;
 	BBCiPlayerServiceType _type;
 	BBCiPlayerCategory *_category;
+	NSString *_letter;
 }
 
 - (id)initWithService:(BBCiPlayerService *)service;
 - (id)initWithType:(BBCiPlayerServiceType)type;
 - (id)initWithCategory:(BBCiPlayerCategory *)category andServiceType:(BBCiPlayerServiceType)type;
+- (id)initWithLetter:(NSString *)letter andServiceType:(BBCiPlayerServiceType)type;
 
 @end

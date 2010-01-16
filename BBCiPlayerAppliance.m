@@ -2,10 +2,12 @@
 #import "BBCiPlayerMenuController.h"
 #import "BBCiPlayerServiceTypeController.h"
 #import "BBCiPlayerCategoriesController.h"
+#import	"BBCiPlayerAtoZController.h"
 
 #define TV_IDENTIFIER @"tv"
 #define RADIO_IDENTIFIER @"radio"
 #define CATEGORIES_IDENTIFIER @"categories"
+#define A_TO_Z_IDENTIFIER @"a-z"
 
 @implementation BBCiPlayerAppliance
 
@@ -59,6 +61,9 @@
 	}
 	else if ([identifier isEqualToString:CATEGORIES_IDENTIFIER]) {
 		controller = [[BBCiPlayerCategoriesController alloc] init];
+	}
+	else if ([identifier isEqualToString:A_TO_Z_IDENTIFIER]) {
+		controller = [[BBCiPlayerAtoZController alloc] init];
 	}
 	
 	return [controller autorelease];

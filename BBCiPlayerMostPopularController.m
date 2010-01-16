@@ -73,9 +73,36 @@
     return self;
 }
 
+- (id)initWithLetter:(NSString *)letter andServiceType:(BBCiPlayerServiceType)type {
+    if ((self = [super init])) {
+		_letter = [letter retain];
+		_type = type;
+		
+		NSString *type;
+		if (_type == BBCiPlayerServiceTypeTV) {
+			type = @"tv";
+			[self setListTitle:@"Most Popular TV"];
+		}
+		else if (_type == BBCiPlayerServiceTypeRadio) {
+			type = @"radio";
+			[self setListTitle:@"Most Popular Radio"];
+		}
+		
+		NSString *ionURLString = [NSString stringWithFormat:@"http://www.bbc.co.uk/iplayer/ion/mostpopular/letter/%@/service_type/%@/format/json", [_letter lowercaseString], type];
+		NSURL *ionURL = [NSURL URLWithString:ionURLString];
+		NSDictionary *ion = [BBCiPlayerIonRequest sendRequestWithURL:ionURL];
+		_items = [[self episodeItemsFromIon:ion] retain];
+		
+		[[self list] setDatasource:self];
+	}
+	
+    return self;
+}
+
 - (void)dealloc {
 	[_service release];
 	[_category release];
+	[_letter release];
 	[super dealloc];
 }
 
