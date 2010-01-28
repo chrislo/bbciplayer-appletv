@@ -40,6 +40,10 @@
 	return _version;
 }
 
+- (NSDate *)broadcast {
+	return _broadcast;
+}
+
 - (NSArray *)metadataLabels {
 	NSMutableArray *labels = [NSMutableArray array];
 	

@@ -12,5 +12,6 @@
 - (id)initWithIon:(NSDictionary *)ion;
 - (NSString *)mediaType;
 - (NSString *)version;
+- (NSDate *)broadcast;
 
 @end

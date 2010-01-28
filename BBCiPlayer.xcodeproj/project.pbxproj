@@ -31,6 +31,7 @@
 		7795C457110112E0003D6792 /* BBCiPlayerCategoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7795C456110112E0003D6792 /* BBCiPlayerCategoryController.m */; };
 		7795C4CB1101165A003D6792 /* BBCiPlayerCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7795C4CA1101165A003D6792 /* BBCiPlayerCategory.m */; };
 		7795C58D1101EE33003D6792 /* BBCiPlayerAtoZController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7795C58C1101EE33003D6792 /* BBCiPlayerAtoZController.m */; };
+		7795C5FF1103B224003D6792 /* BBCiPlayerSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7795C5FE1103B224003D6792 /* BBCiPlayerSearchController.m */; };
 		779A88D110FFF69800656ABA /* bin in Resources */ = {isa = PBXBuildFile; fileRef = 779A88CD10FFF69800656ABA /* bin */; };
 		779A89A71100E51100656ABA /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 779A89A61100E51100656ABA /* OpenGL.framework */; };
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
@@ -99,6 +100,8 @@
 		7795C4CA1101165A003D6792 /* BBCiPlayerCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCiPlayerCategory.m; sourceTree = "<group>"; };
 		7795C58B1101EE33003D6792 /* BBCiPlayerAtoZController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCiPlayerAtoZController.h; sourceTree = "<group>"; };
 		7795C58C1101EE33003D6792 /* BBCiPlayerAtoZController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCiPlayerAtoZController.m; sourceTree = "<group>"; };
+		7795C5FD1103B224003D6792 /* BBCiPlayerSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCiPlayerSearchController.h; sourceTree = "<group>"; };
+		7795C5FE1103B224003D6792 /* BBCiPlayerSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCiPlayerSearchController.m; sourceTree = "<group>"; };
 		779A88CD10FFF69800656ABA /* bin */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bin; sourceTree = "<group>"; };
 		779A89A61100E51100656ABA /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		8D5B49B6048680CD000E48DA /* BBCiPlayer.frappliance */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BBCiPlayer.frappliance; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,6 +249,8 @@
 				7795C456110112E0003D6792 /* BBCiPlayerCategoryController.m */,
 				7795C58B1101EE33003D6792 /* BBCiPlayerAtoZController.h */,
 				7795C58C1101EE33003D6792 /* BBCiPlayerAtoZController.m */,
+				7795C5FD1103B224003D6792 /* BBCiPlayerSearchController.h */,
+				7795C5FE1103B224003D6792 /* BBCiPlayerSearchController.m */,
 			);
 			name = "Menu Controllers";
 			sourceTree = "<group>";
@@ -356,6 +361,7 @@
 				7795C457110112E0003D6792 /* BBCiPlayerCategoryController.m in Sources */,
 				7795C4CB1101165A003D6792 /* BBCiPlayerCategory.m in Sources */,
 				7795C58D1101EE33003D6792 /* BBCiPlayerAtoZController.m in Sources */,
+				7795C5FF1103B224003D6792 /* BBCiPlayerSearchController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
