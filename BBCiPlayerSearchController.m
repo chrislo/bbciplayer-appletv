@@ -1,4 +1,5 @@
 #import "BBCiPlayerSearchController.h"
+#import "BBCiPlayerVideoPlayerController.h"
 #import "BBCiPlayerEpisode.h"
 #import "BBCiPlayerIonRequest.h"
 #import "MoviePlayer.h"
@@ -124,9 +125,10 @@
 
 - (void)itemSelected:(long)row {
 	BBCiPlayerEpisode *episode = [self dataAtIndex:row];
-	[MoviePlayer playMovie:[episode version] ofMediaType:[episode mediaType]];
-//    BRAlertController *controller = [BRAlertController alertOfType:0 titled:[episode title] primaryText:[episode id] secondaryText:nil];
-//    [[self stack] pushController:controller];
+//	[MoviePlayer playMovie:[episode version] ofMediaType:[episode mediaType]];
+	BBCiPlayerVideoPlayerController *controller = [[BBCiPlayerVideoPlayerController alloc] initWithEpisode:episode];
+	[controller autorelease];
+    [[self stack] pushController:controller];
 }
 
 - (BOOL)brEventAction:(BREvent *)event {

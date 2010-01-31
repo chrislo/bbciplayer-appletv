@@ -2,6 +2,7 @@
 #import "BBCiPlayerEpisode.h"
 #import "BBCiPlayerMediaAsset.h"
 #import "BBCiPlayerMetadataPreviewControl.h"
+#import "BBCiPlayerVideoPlayerController.h"
 #import "MoviePlayer.h"
 
 @implementation BBCiPlayerMenuController
@@ -74,9 +75,10 @@
 }
 
 - (void)episodeSelected:(BBCiPlayerEpisode *)episode {
-	[MoviePlayer playMovie:[episode version] ofMediaType:[episode mediaType]];
-//    BRAlertController *controller = [BRAlertController alertOfType:0 titled:[episode title] primaryText:[episode id] secondaryText:nil];
-//    [[self stack] pushController:controller];
+//	[MoviePlayer playMovie:[episode version] ofMediaType:[episode mediaType]];
+	BBCiPlayerVideoPlayerController *controller = [[BBCiPlayerVideoPlayerController alloc] initWithEpisode:episode];
+	[controller autorelease];
+    [[self stack] pushController:controller];
 }
 
 - (id)previewControlForEpisode:(BBCiPlayerEpisode *)episode {
