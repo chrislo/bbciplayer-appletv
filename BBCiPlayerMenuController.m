@@ -2,8 +2,8 @@
 #import "BBCiPlayerEpisode.h"
 #import "BBCiPlayerMediaAsset.h"
 #import "BBCiPlayerMetadataPreviewControl.h"
+#import "BBCiPlayerAudioPlayerController.h"
 #import "BBCiPlayerVideoPlayerController.h"
-#import "MoviePlayer.h"
 
 @implementation BBCiPlayerMenuController
 
@@ -75,8 +75,13 @@
 }
 
 - (void)episodeSelected:(BBCiPlayerEpisode *)episode {
-//	[MoviePlayer playMovie:[episode version] ofMediaType:[episode mediaType]];
-	BBCiPlayerVideoPlayerController *controller = [[BBCiPlayerVideoPlayerController alloc] initWithEpisode:episode];
+	BRController *controller;
+	if ([[episode mediaType] isEqualToString:@"audio"]) {
+		controller = [[BBCiPlayerAudioPlayerController alloc] initWithEpisode:episode];
+	}
+	else {
+		controller = [[BBCiPlayerVideoPlayerController alloc] initWithEpisode:episode];
+	}
 	[controller autorelease];
     [[self stack] pushController:controller];
 }

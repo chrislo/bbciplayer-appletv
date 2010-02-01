@@ -2,7 +2,8 @@
 #import "BBCiPlayerVideoPlayerController.h"
 #import "BBCiPlayerEpisode.h"
 #import "BBCiPlayerIonRequest.h"
-#import "MoviePlayer.h"
+#import "BBCiPlayerAudioPlayerController.h"
+#import "BBCiPlayerVideoPlayerController.h"
 
 @implementation BBCiPlayerSearchController
 
@@ -125,8 +126,13 @@
 
 - (void)itemSelected:(long)row {
 	BBCiPlayerEpisode *episode = [self dataAtIndex:row];
-//	[MoviePlayer playMovie:[episode version] ofMediaType:[episode mediaType]];
-	BBCiPlayerVideoPlayerController *controller = [[BBCiPlayerVideoPlayerController alloc] initWithEpisode:episode];
+	BRController *controller;
+	if ([[episode mediaType] isEqualToString:@"audio"]) {
+		controller = [[BBCiPlayerAudioPlayerController alloc] initWithEpisode:episode];
+	}
+	else {
+		controller = [[BBCiPlayerVideoPlayerController alloc] initWithEpisode:episode];
+	}
 	[controller autorelease];
     [[self stack] pushController:controller];
 }

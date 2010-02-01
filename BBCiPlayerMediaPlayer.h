@@ -8,7 +8,10 @@ enum {
 };
 typedef unsigned int BBCiPlayerMediaPlayerState;
 
+@class BBCiPlayerMediaAsset;
+
 @interface BBCiPlayerMediaPlayer : BRMediaPlayer {
+	BBCiPlayerMediaAsset *_mediaAsset;
 	BBCiPlayerMediaPlayerState _state;
 	NSString *_pid;
 	NSString *_type;
@@ -24,5 +27,7 @@ typedef unsigned int BBCiPlayerMediaPlayerState;
 - (void)stop;
 - (void)_sendCommand:(NSString *)command;
 - (void)_mplayerTerminated:(NSNotification *)notification;
+
+extern NSString *kBRMediaPlayerCurrentAssetChanged;
 
 @end

@@ -3,6 +3,7 @@
 
 @interface BBCiPlayerEpisode : BBCiPlayerEntity {
 	int _duration;
+	NSString *_masterbrand;
 	NSString *_mediaType;
 	NSString *_version;
 	NSDate *_broadcast;
@@ -10,6 +11,7 @@
 }
 
 - (id)initWithIon:(NSDictionary *)ion;
+- (NSString *)masterbrand;
 - (NSString *)mediaType;
 - (NSString *)version;
 - (NSDate *)broadcast;

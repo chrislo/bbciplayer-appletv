@@ -90,6 +90,7 @@
 }
 
 - (void)dealloc {
+	[_mediaAsset release];
     [_pid release];
     [_type release];
 	[_commandPipe release];
@@ -185,6 +186,15 @@
     
     [xml release];
     return info;
+}
+
+- (BOOL)setMediaAtIndex:(long)index inTrackList:(id)tracklist error:(id *)error {
+	_mediaAsset = [tracklist objectAtIndex:index];
+	return [super setMediaAtIndex:index inTrackList:tracklist error:error];
+}
+
+- (id)media {
+	return _mediaAsset;
 }
 
 - (BBCiPlayerMediaPlayerState)state {

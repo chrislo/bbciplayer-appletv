@@ -26,7 +26,6 @@
 		77598EC810FE2B0200EC80D1 /* BBCiPlayerServiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77598EC710FE2B0200EC80D1 /* BBCiPlayerServiceController.m */; };
 		77598EF610FE331A00EC80D1 /* BBCiPlayerScheduleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77598EF510FE331A00EC80D1 /* BBCiPlayerScheduleController.m */; };
 		775990D110FE807A00EC80D1 /* ServiceThumbnails in Resources */ = {isa = PBXBuildFile; fileRef = 7759908D10FE807A00EC80D1 /* ServiceThumbnails */; };
-		7788565110FF9240005F5D87 /* MoviePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7788565010FF9240005F5D87 /* MoviePlayer.m */; };
 		7795C452110112CE003D6792 /* BBCiPlayerCategoriesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7795C451110112CE003D6792 /* BBCiPlayerCategoriesController.m */; };
 		7795C457110112E0003D6792 /* BBCiPlayerCategoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7795C456110112E0003D6792 /* BBCiPlayerCategoryController.m */; };
 		7795C4CB1101165A003D6792 /* BBCiPlayerCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7795C4CA1101165A003D6792 /* BBCiPlayerCategory.m */; };
@@ -34,10 +33,11 @@
 		7795C5FF1103B224003D6792 /* BBCiPlayerSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7795C5FE1103B224003D6792 /* BBCiPlayerSearchController.m */; };
 		7795CA6611124827003D6792 /* BBCiPlayerMediaPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7795CA6511124827003D6792 /* BBCiPlayerMediaPlayer.m */; };
 		7795CA6B11124889003D6792 /* BBCiPlayerVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7795CA6A11124889003D6792 /* BBCiPlayerVideoPlayerController.m */; };
+		7795CC0311162007003D6792 /* BBCiPlayerAudioPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7795CC0211162007003D6792 /* BBCiPlayerAudioPlayerController.m */; };
 		779A88D110FFF69800656ABA /* bin in Resources */ = {isa = PBXBuildFile; fileRef = 779A88CD10FFF69800656ABA /* bin */; };
 		779A89A71100E51100656ABA /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 779A89A61100E51100656ABA /* OpenGL.framework */; };
+		77E1ADD511164518001C652F /* BackRow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E1ADD411164518001C652F /* BackRow.framework */; };
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
-		E3D772A610321DDA00D0AEAD /* BackRow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D772A510321DDA00D0AEAD /* BackRow.framework */; };
 		E3F00CAC1030C4F60062016C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3F00CAB1030C4F60062016C /* Cocoa.framework */; };
 		E3F00CB01030C5190062016C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3F00CAF1030C5190062016C /* Foundation.framework */; };
 		E3F00CBD1030C7990062016C /* BBCiPlayerAppliance.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F00CBC1030C7990062016C /* BBCiPlayerAppliance.m */; };
@@ -92,8 +92,6 @@
 		77598EF410FE331A00EC80D1 /* BBCiPlayerScheduleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCiPlayerScheduleController.h; sourceTree = "<group>"; };
 		77598EF510FE331A00EC80D1 /* BBCiPlayerScheduleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCiPlayerScheduleController.m; sourceTree = "<group>"; };
 		7759908D10FE807A00EC80D1 /* ServiceThumbnails */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ServiceThumbnails; sourceTree = "<group>"; };
-		7788564F10FF9240005F5D87 /* MoviePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviePlayer.h; sourceTree = "<group>"; };
-		7788565010FF9240005F5D87 /* MoviePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviePlayer.m; sourceTree = "<group>"; };
 		7795C450110112CE003D6792 /* BBCiPlayerCategoriesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCiPlayerCategoriesController.h; sourceTree = "<group>"; };
 		7795C451110112CE003D6792 /* BBCiPlayerCategoriesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCiPlayerCategoriesController.m; sourceTree = "<group>"; };
 		7795C455110112E0003D6792 /* BBCiPlayerCategoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCiPlayerCategoryController.h; sourceTree = "<group>"; };
@@ -108,11 +106,13 @@
 		7795CA6511124827003D6792 /* BBCiPlayerMediaPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCiPlayerMediaPlayer.m; sourceTree = "<group>"; };
 		7795CA6911124889003D6792 /* BBCiPlayerVideoPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCiPlayerVideoPlayerController.h; sourceTree = "<group>"; };
 		7795CA6A11124889003D6792 /* BBCiPlayerVideoPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCiPlayerVideoPlayerController.m; sourceTree = "<group>"; };
+		7795CC0111162007003D6792 /* BBCiPlayerAudioPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCiPlayerAudioPlayerController.h; sourceTree = "<group>"; };
+		7795CC0211162007003D6792 /* BBCiPlayerAudioPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCiPlayerAudioPlayerController.m; sourceTree = "<group>"; };
 		779A88CD10FFF69800656ABA /* bin */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bin; sourceTree = "<group>"; };
 		779A89A61100E51100656ABA /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		77E1ADD411164518001C652F /* BackRow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BackRow.framework; path = System/Library/PrivateFrameworks/BackRow.framework; sourceTree = SDKROOT; };
 		8D5B49B6048680CD000E48DA /* BBCiPlayer.frappliance */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BBCiPlayer.frappliance; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E3D772A510321DDA00D0AEAD /* BackRow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BackRow.framework; path = System/Library/PrivateFrameworks/BackRow.framework; sourceTree = SDKROOT; };
 		E3F00CAB1030C4F60062016C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		E3F00CAF1030C5190062016C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E3F00CBB1030C7990062016C /* BBCiPlayerAppliance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCiPlayerAppliance.h; sourceTree = "<group>"; };
@@ -125,9 +125,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77E1ADD511164518001C652F /* BackRow.framework in Frameworks */,
 				E3F00CAC1030C4F60062016C /* Cocoa.framework in Frameworks */,
 				E3F00CB01030C5190062016C /* Foundation.framework in Frameworks */,
-				E3D772A610321DDA00D0AEAD /* BackRow.framework in Frameworks */,
 				77555E4610FFC3E400A48795 /* JSON.framework in Frameworks */,
 				779A89A71100E51100656ABA /* OpenGL.framework in Frameworks */,
 			);
@@ -185,7 +185,7 @@
 		1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E3D772A510321DDA00D0AEAD /* BackRow.framework */,
+				77E1ADD411164518001C652F /* BackRow.framework */,
 				E3F00CAF1030C5190062016C /* Foundation.framework */,
 				E3F00CAB1030C4F60062016C /* Cocoa.framework */,
 				77555E4510FFC3E400A48795 /* JSON.framework */,
@@ -268,12 +268,12 @@
 				77598C3410FBCF3800EC80D1 /* BBCiPlayerMetadataPreviewControl.m */,
 				775987D210F7F92E00EC80D1 /* BBCiPlayerMediaAsset.h */,
 				775987D310F7F92E00EC80D1 /* BBCiPlayerMediaAsset.m */,
-				7788564F10FF9240005F5D87 /* MoviePlayer.h */,
-				7788565010FF9240005F5D87 /* MoviePlayer.m */,
 				7795CA6411124827003D6792 /* BBCiPlayerMediaPlayer.h */,
 				7795CA6511124827003D6792 /* BBCiPlayerMediaPlayer.m */,
 				7795CA6911124889003D6792 /* BBCiPlayerVideoPlayerController.h */,
 				7795CA6A11124889003D6792 /* BBCiPlayerVideoPlayerController.m */,
+				7795CC0111162007003D6792 /* BBCiPlayerAudioPlayerController.h */,
+				7795CC0211162007003D6792 /* BBCiPlayerAudioPlayerController.m */,
 			);
 			name = Media;
 			sourceTree = "<group>";
@@ -366,7 +366,6 @@
 				77598EC810FE2B0200EC80D1 /* BBCiPlayerServiceController.m in Sources */,
 				77598EF610FE331A00EC80D1 /* BBCiPlayerScheduleController.m in Sources */,
 				770ACE6710FF76EB00689649 /* BBCiPlayerScheduleDayController.m in Sources */,
-				7788565110FF9240005F5D87 /* MoviePlayer.m in Sources */,
 				7795C452110112CE003D6792 /* BBCiPlayerCategoriesController.m in Sources */,
 				7795C457110112E0003D6792 /* BBCiPlayerCategoryController.m in Sources */,
 				7795C4CB1101165A003D6792 /* BBCiPlayerCategory.m in Sources */,
@@ -374,6 +373,7 @@
 				7795C5FF1103B224003D6792 /* BBCiPlayerSearchController.m in Sources */,
 				7795CA6611124827003D6792 /* BBCiPlayerMediaPlayer.m in Sources */,
 				7795CA6B11124889003D6792 /* BBCiPlayerVideoPlayerController.m in Sources */,
+				7795CC0311162007003D6792 /* BBCiPlayerAudioPlayerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,11 +411,17 @@
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
 					/Volumes/JSON_2.0.1,
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_4)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_5)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_6)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_7)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/PrivateFrameworks\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_4 = "\"$(SRCROOT)\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_5 = "\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_6 = "\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_7 = "\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -444,11 +450,17 @@
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
 					/Volumes/JSON_2.0.1,
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_4)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_5)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_6)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_7)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/PrivateFrameworks\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_4 = "\"$(SRCROOT)\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_5 = "\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_6 = "\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_7 = "\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;

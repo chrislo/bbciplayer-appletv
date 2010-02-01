@@ -10,6 +10,9 @@
 }
 
 - (void)dealloc {
+	[_title release];
+	[_artist release];
+	[_summary release];
 	[_imagePath release];
 	[_coverart release];
 	[super dealloc];
@@ -29,6 +32,9 @@
 {
 	if (_imageOnly) {
 		return nil;
+	}
+	else if (_isRadio) {
+		return [BRMediaType internetRadioStation];
 	}
 	else {
 		return [BRMediaType TVShow];
@@ -60,17 +66,30 @@
 	_title = [title retain];
 }
 
-- (void)setMediaSummary:(NSString *)mediaSummary {
-	[_summary release];
-	_summary = [mediaSummary retain];
+- (NSString *)artist {
+	return _artist;
+}
+
+- (void)setArtist:(NSString *)artist {
+	[_artist release];
+	_artist = [artist retain];
 }
 
 - (id)mediaSummary {
 	return _summary;
 }
 
+- (void)setMediaSummary:(NSString *)mediaSummary {
+	[_summary release];
+	_summary = [mediaSummary retain];
+}
+
 - (void)setImageOnly:(BOOL)imageOnly {
 	_imageOnly = imageOnly;
+}
+
+- (void)setIsRadio:(BOOL)isRadio {
+	_isRadio = isRadio;
 }
 
 @end
