@@ -1,0 +1,9 @@
+BBCiPlayer for Apple TV
+ 
+Watch BBC TV and listen to BBC Radio using BBC iPlayer on your Apple TV.
+ 
+Installation:
+
+1. Enable SSH on your Apple TV (http://wiki.awkwardtv.org/wiki/Beginners_Guide3#Patch_The_AppleTV)
+2. Copy BBCiPlayer.frappliance to the correct location. In Terminal type "scp BBCiPlayer.frappliance frontrow@appletv.local:/System/Library/CoreServices/Finder.app/Contents/PlugIns/BBCiPlayer.frappliance". The password is frontrow.
+3. Restart your Apple TV.
