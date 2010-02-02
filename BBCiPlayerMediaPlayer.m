@@ -1,6 +1,6 @@
 #import "BBCiPlayerMediaPlayer.h"
+#import <signal.h>
 #import <sys/stat.h>
-#include <unistd.h>
 
 @implementation BBCiPlayerMediaPlayer
 
@@ -16,10 +16,19 @@
 			NSString *flvstreamerPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"flvstreamer" ofType:nil inDirectory:@"bin"];
 			NSString *mplayerPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"mplayer" ofType:nil inDirectory:@"bin"];
 
-			NSTask *flvstreamerTask = [[[NSTask alloc] init] autorelease];
-			[flvstreamerTask setLaunchPath:flvstreamerPath];
+			CFUUIDRef uuid = CFUUIDCreate(NULL);
+			NSString *uniqueString = (NSString *)CFUUIDCreateString(NULL, uuid);
+			CFRelease(uuid);
 			
-			NSMutableArray *flvstreamerArguments = [NSMutableArray arrayWithObjects:@"--port", @"1935", @"--timeout", @"15", @"--quiet", @"-o", @"-", nil];
+			_filePath = [NSString pathWithComponents:[NSArray arrayWithObjects: NSTemporaryDirectory(), [@"bbciplayer-" stringByAppendingString:uniqueString], nil]];
+			[_filePath retain];
+
+			mkfifo([_filePath cString], 0666);
+
+			_flvstreamerTask = [[NSTask alloc] init];
+			[_flvstreamerTask setLaunchPath:flvstreamerPath];
+			
+			NSMutableArray *flvstreamerArguments = [NSMutableArray arrayWithObjects:@"--port", @"1935", @"--timeout", @"10", @"--quiet", nil];
 			[flvstreamerArguments addObject:@"--protocol"];
 			[flvstreamerArguments addObject:[info objectForKey:@"protocol"]];
 			[flvstreamerArguments addObject:@"--playpath"];
@@ -32,12 +41,14 @@
 			[flvstreamerArguments addObject:[info objectForKey:@"tcUrl"]];
 			[flvstreamerArguments addObject:@"--app"];
 			[flvstreamerArguments addObject:[info objectForKey:@"application"]];
-			[flvstreamerTask setArguments:flvstreamerArguments];
+			[flvstreamerArguments addObject:@"-o"];
+			[flvstreamerArguments addObject:_filePath];
+			[_flvstreamerTask setArguments:flvstreamerArguments];
 			
-			NSTask *mplayerTask = [[[NSTask alloc] init] autorelease];
-			[mplayerTask setLaunchPath:mplayerPath];
-			
-			NSMutableArray *mplayerArguments = [NSMutableArray arrayWithObjects:@"-really-quiet", @"-cache", @"3072", @"-", nil];
+			_mplayerTask = [[[NSTask alloc] init] autorelease];
+			[_mplayerTask setLaunchPath:mplayerPath];
+
+			NSMutableArray *mplayerArguments = [NSMutableArray arrayWithObjects:@"-really-quiet", @"-cache", @"3072", nil];
 			
 			if ([type isEqualToString:@"audio"]) {
 				[mplayerArguments addObject:@"-vo"];
@@ -49,41 +60,22 @@
 				[mplayerArguments addObject:@"-fs"];
 			}
 			
-			// create named pipe for controlling mplayer
-			CFUUIDRef uuid = CFUUIDCreate(NULL);
-			NSString *uniqueString = (NSString *)CFUUIDCreateString(NULL, uuid);
-			CFRelease(uuid);
-			
-			_commandPipePath = [NSString pathWithComponents:[NSArray arrayWithObjects: NSTemporaryDirectory(), [@"bbciplayer-" stringByAppendingString:uniqueString], nil]];
-			[_commandPipePath retain];
-			
-			mkfifo([_commandPipePath cString], 0666);
-			
 			[mplayerArguments addObject:@"-slave"];
-			[mplayerArguments addObject:@"-input"];
-			[mplayerArguments addObject:[@"file=" stringByAppendingString:_commandPipePath]];
+			[mplayerArguments addObject:_filePath];
 			
-			// mplayer arguments all set up, configure the task
-			[mplayerTask setArguments:mplayerArguments];
-			[mplayerTask waitUntilExit];
-			
-			NSPipe *videoPipe = [NSPipe pipe];
-			[flvstreamerTask setStandardOutput:videoPipe];
-			[mplayerTask setStandardInput:videoPipe];
+			[_mplayerTask setArguments:mplayerArguments];
+			[_mplayerTask waitUntilExit];
+			[_mplayerTask setStandardInput:[NSPipe pipe]];
 						
 			[[NSNotificationCenter defaultCenter] addObserver:self
 													 selector:@selector(_mplayerTerminated:)
 													     name:NSTaskDidTerminateNotification
-													   object:mplayerTask];
+													   object:_mplayerTask];
 
-			[flvstreamerTask launch];
-			[mplayerTask launch];
+			[_flvstreamerTask launch];
+			[_mplayerTask launch];
 			
-			// set state and open command pipe for writing
 			_state = BBCiPlayerMediaPlayerStatePlaying;
-			
-			_commandPipe = [NSFileHandle fileHandleForWritingAtPath:_commandPipePath];
-			[_commandPipe retain];
 		}
     }
     return self;
@@ -93,8 +85,9 @@
 	[_mediaAsset release];
     [_pid release];
     [_type release];
-	[_commandPipe release];
-	[_commandPipePath release];
+	[_filePath release];
+	[_mplayerTask release];
+	[_flvstreamerTask release];
     [super dealloc];
 }
 
@@ -218,7 +211,8 @@
 
 - (void)_sendCommand:(NSString *)command {
 	@try {
-		[_commandPipe writeData:[command dataUsingEncoding:NSASCIIStringEncoding]];
+		NSFileHandle *mplayerStdin = [[_mplayerTask standardInput] fileHandleForWriting];
+		[mplayerStdin writeData:[command dataUsingEncoding:NSASCIIStringEncoding]];
 	}
 	@catch (NSException *exception) {
 		// ignore
@@ -227,8 +221,8 @@
 
 - (void)_mplayerTerminated:(NSNotification *)notification {
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:NSTaskDidTerminateNotification object:nil];
-	[_commandPipe closeFile];
-	[[NSFileManager defaultManager] removeFileAtPath:_commandPipePath handler:nil];
+	kill([_flvstreamerTask processIdentifier], SIGKILL);
+	[[NSFileManager defaultManager] removeFileAtPath:_filePath handler:nil];
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"BBCiPlayerMediaPlayerDidTerminateNotification" object:self];
 }
 

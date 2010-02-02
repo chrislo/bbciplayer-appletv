@@ -15,8 +15,9 @@ typedef unsigned int BBCiPlayerMediaPlayerState;
 	BBCiPlayerMediaPlayerState _state;
 	NSString *_pid;
 	NSString *_type;
-	NSString *_commandPipePath;
-	NSFileHandle *_commandPipe;
+	NSString *_filePath;
+	NSTask *_mplayerTask;
+	NSTask *_flvstreamerTask;
 }
 
 - (id)initWithPid:(NSString *)pid ofMediaType:(NSString *)type;
